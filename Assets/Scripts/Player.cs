@@ -4,41 +4,85 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//玩家位置
+public enum Pos
+{
+    UR,
+    UL,
+    DR,
+    DL
+}
+
+public enum Direction
+{
+    None,
+    Up,
+    Down,
+    Left,
+    Right,
+    UpRight,
+    UpLeft,
+    DownRight,
+    DownLeft
+}
+
 public class Player : MonoBehaviour
 {
-    //玩家位置
-    public enum Pos
-    {
-        UR,
-        UL,
-        DR,
-        DL
-    }
 
-    public enum Direction
-    {
-        None,
-        Up,
-        Down,
-        Left,
-        Right,
-        UpRight,
-        UpLeft,
-        DownRight,
-        DownLeft
-    }
 
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     Vector2 startTouchPos;
 
-    //玩家起始位置
-    Pos Start = Pos.DL;
+    //玩家目標位置
+    Pos desPos = Pos.DL;
 
     // Update is called once per frame
     void Update()
     {
         Direction dir = GetTouchSwipeDirection();
+
+        if (dir == Direction.Up)
+            GoU();
+        if (dir == Direction.Down)
+            GoD();
+        if (dir == Direction.Left)
+            GoL();
+        if (dir == Direction.Right)
+            GoR();
+        if (dir == Direction.UpRight)
+            GoUR();
+        if (dir == Direction.UpLeft)
+            GoUL();
+        if (dir == Direction.DownRight)
+            GoDR();
+        if (dir == Direction.DownLeft)
+            GoDL();
+
+        UpdatePos();
     }
+
+    /*
+    private Direction KeyBoardCon()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) & Input.GetKeyDown(KeyCode.UpArrow))
+            return Direction.UpLeft;
+        if (Input.GetKeyDown(KeyCode.LeftArrow) & Input.GetKeyDown(KeyCode.DownArrow))
+            return Direction.DownLeft;
+        if (Input.GetKeyDown(KeyCode.RightArrow) & Input.GetKeyDown(KeyCode.UpArrow))
+            return Direction.UpRight;
+        if (Input.GetKeyDown(KeyCode.RightArrow) & Input.GetKeyDown(KeyCode.DownArrow))
+            return Direction.DownRight;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            return Direction.Up;
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            return Direction.Down;
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            return Direction.Left;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            return Direction.Right;
+        return Direction.None;
+    }
+    */
 
     private Direction GetTouchSwipeDirection()
     {
@@ -59,12 +103,6 @@ public class Player : MonoBehaviour
             {
                 // 計算觸碰滑動距離
                 Vector2 delta = startTouchPos - Input.touches[0].position;
-                /*
-                Debug.Log("x");
-                Debug.Log(delta.x);
-                Debug.Log("y");
-                Debug.Log(delta.y);
-                */
 
                 //左右 or 斜向滑動
                 if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
@@ -126,5 +164,82 @@ public class Player : MonoBehaviour
             }
         }
         return Direction.None;
+    }
+
+    //更新玩家位置
+    private void UpdatePos()
+    {
+        //目標位置 to 座標
+        float dx = 5, dy = -3;
+        if (desPos == Pos.DL)
+        {
+            dx = -5; dy = -3;
+        }
+        if (desPos == Pos.DR)
+        {
+            dx = 7.5f; dy = -3;
+        }
+        if (desPos == Pos.UL)
+        {
+            dx = -5; dy = 3;
+        }
+        if (desPos == Pos.UR)
+        {
+            dx = 7.5f; dy = 3;
+        }
+
+        //float x = Mathf.Lerp(transform.position.x, dx, 0.05f);
+        //float y = Mathf.Lerp(transform.position.y, dy, 0.05f);
+        //float z = transform.position.z + 0.05f;
+        transform.position = new Vector3(dx, dy, 0);
+    }
+
+    private void GoU()
+    {
+        if (desPos == Pos.DL)
+            desPos = Pos.UL;
+        else if (desPos == Pos.DR)
+            desPos = Pos.UR;
+    }
+    private void GoD()
+    {
+        if (desPos == Pos.UL)
+            desPos = Pos.DL;
+        else if (desPos == Pos.UR)
+            desPos = Pos.DR;
+    }
+    private void GoL()
+    {
+        if (desPos == Pos.DR)
+            desPos = Pos.DL;
+        else if (desPos == Pos.UR)
+            desPos = Pos.UL;
+    }
+    private void GoR()
+    {
+        if (desPos == Pos.DL)
+            desPos = Pos.DR;
+        else if (desPos == Pos.UL)
+            desPos = Pos.UR;
+    }
+    private void GoUR()
+    {
+        if (desPos == Pos.DL)
+            desPos = Pos.UR;
+    }
+    private void GoUL()
+    {
+        if (desPos == Pos.DR)
+            desPos = Pos.UL;
+    }
+    private void GoDR()
+    {
+        if (desPos == Pos.UL)
+            desPos = Pos.DR;
+    }
+    private void GoDL()
+    {
+        if (desPos == Pos.UR)
+            desPos = Pos.DL;
     }
 }
