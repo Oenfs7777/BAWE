@@ -13,6 +13,7 @@ public enum Pos
     DL
 }
 
+//可前往的方向
 public enum Direction
 {
     None,
@@ -39,7 +40,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //觸控
         Direction dir = GetTouchSwipeDirection();
+
+        //鍵盤
+        if (dir == Direction.None)
+            dir = KeyBoardCon();
 
         if (dir == Direction.Up)
             GoU();
@@ -61,32 +67,32 @@ public class Player : MonoBehaviour
         UpdatePos();
     }
 
-    /*
+    //鍵盤控制
     private Direction KeyBoardCon()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) & Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Q))
             return Direction.UpLeft;
-        if (Input.GetKeyDown(KeyCode.LeftArrow) & Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.Z))
             return Direction.DownLeft;
-        if (Input.GetKeyDown(KeyCode.RightArrow) & Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.E))
             return Direction.UpRight;
-        if (Input.GetKeyDown(KeyCode.RightArrow) & Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.C))
             return Direction.DownRight;
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W))
             return Direction.Up;
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.X))
             return Direction.Down;
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A))
             return Direction.Left;
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             return Direction.Right;
         return Direction.None;
     }
-    */
 
+    //滑動控制
     private Direction GetTouchSwipeDirection()
     {
-        Touch touch = Input.GetTouch(0);
+        //Touch touch = Input.GetTouch(0);
 
         // 如果有觸碰 (touches陣列有內容)
         if (EventSystem.current.currentSelectedGameObject == null & Input.touches.Length > 0)
@@ -188,12 +194,13 @@ public class Player : MonoBehaviour
             dx = 7.5f; dy = 3;
         }
 
-        //float x = Mathf.Lerp(transform.position.x, dx, 0.05f);
-        //float y = Mathf.Lerp(transform.position.y, dy, 0.05f);
-        //float z = transform.position.z + 0.05f;
-        transform.position = new Vector3(dx, dy, 0);
+        float x = Mathf.Lerp(transform.position.x, dx, 0.05f);
+        float y = Mathf.Lerp(transform.position.y, dy, 0.05f);
+        float z = transform.position.z + 0.05f;
+        transform.position = new Vector3(x, y, z);
     }
 
+    //前往的方向控制
     private void GoU()
     {
         if (desPos == Pos.DL)
