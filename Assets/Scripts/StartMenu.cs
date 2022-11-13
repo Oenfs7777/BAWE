@@ -8,6 +8,10 @@ public class StartMenu : MonoBehaviour
 {
     public void StartButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainScene");
+    }
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }
