@@ -4,31 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//玩家位置
-public enum Pos
+public class Player1 : MonoBehaviour
 {
-    UR,
-    UL,
-    DR,
-    DL
-}
+    public GameObject Player, attackObj;
 
-//可前往的方向
-public enum Direction
-{
-    None,
-    Up,
-    Down,
-    Left,
-    Right,
-    UpRight,
-    UpLeft,
-    DownRight,
-    DownLeft
-}
-
-public class Player : MonoBehaviour
-{
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     Vector2 startTouchPos;
 
@@ -54,14 +33,15 @@ public class Player : MonoBehaviour
             GoL();
         if (dir == Direction.Right)
             GoR();
+
         if (dir == Direction.UpRight)
-            GoUR();
+            attack();
         if (dir == Direction.UpLeft)
-            GoUL();
+            attack();
         if (dir == Direction.DownRight)
-            GoDR();
+            attack();
         if (dir == Direction.DownLeft)
-            GoDL();
+            attack();
 
         UpdatePos();
     }
@@ -197,6 +177,12 @@ public class Player : MonoBehaviour
         float y = Mathf.Lerp(transform.position.y, dy, 0.05f);
         float z = transform.position.z + 0.05f;
         transform.position = new Vector3(x, y, z);
+    }
+
+    private void attack()
+    {
+        GameObject a = Instantiate(attackObj);
+        a.transform.position = new Vector3(Player.transform.position.x + 2, Player.transform.position.y + 2, Player.transform.position.z);
     }
 
     //前往的方向控制

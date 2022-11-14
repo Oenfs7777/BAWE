@@ -4,30 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//玩家位置
-public enum Pos
-{
-    UR,
-    UL,
-    DR,
-    DL
-}
-
-//可前往的方向
-public enum Direction
-{
-    None,
-    Up,
-    Down,
-    Left,
-    Right,
-    UpRight,
-    UpLeft,
-    DownRight,
-    DownLeft
-}
-
-public class Player : MonoBehaviour
+public class Attack : MonoBehaviour
 {
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     Vector2 startTouchPos;
