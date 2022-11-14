@@ -29,6 +29,12 @@ public enum Direction
 
 public class Player : MonoBehaviour
 {
+    //玩家可待的四個角落
+    public GameObject DLpos, DRpos, URpos, ULpos;
+
+    //玩家已就定位
+    public bool stay = false;
+
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     Vector2 startTouchPos;
 
@@ -45,25 +51,43 @@ public class Player : MonoBehaviour
         if (dir == Direction.None)
             dir = KeyBoardCon();
 
-        //控制方向
-        if (dir == Direction.Up)
-            GoU();
-        if (dir == Direction.Down)
-            GoD();
-        if (dir == Direction.Left)
-            GoL();
-        if (dir == Direction.Right)
-            GoR();
-        if (dir == Direction.UpRight)
-            GoUR();
-        if (dir == Direction.UpLeft)
-            GoUL();
-        if (dir == Direction.DownRight)
-            GoDR();
-        if (dir == Direction.DownLeft)
-            GoDL();
+        if (stay)
+        {
+            //控制方向
+            if (dir == Direction.Up)
+                GoU();
+            if (dir == Direction.Down)
+                GoD();
+            if (dir == Direction.Left)
+                GoL();
+            if (dir == Direction.Right)
+                GoR();
+            if (dir == Direction.UpRight)
+                GoUR();
+            if (dir == Direction.UpLeft)
+                GoUL();
+            if (dir == Direction.DownRight)
+                GoDR();
+            if (dir == Direction.DownLeft)
+                GoDL();
+        }
+            UpdatePos();
+    }
 
-        UpdatePos();
+    //玩家是否就定位
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Platform")
+        {
+            stay = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Platform")
+        {
+            stay = false;
+        }
     }
 
     //鍵盤控制
@@ -175,27 +199,27 @@ public class Player : MonoBehaviour
     private void UpdatePos()
     {
         //目標位置 to 座標
-        float dx = 5, dy = -3;
+        float dx = 0, dy = 0;
         if (desPos == Pos.DL)
         {
-            dx = -5; dy = -3;
+            dx = DLpos.transform.position.x; dy = DLpos.transform.position.y;
         }
         if (desPos == Pos.DR)
         {
-            dx = 7.5f; dy = -3;
+            dx = DRpos.transform.position.x; dy = DRpos.transform.position.y;
         }
         if (desPos == Pos.UL)
         {
-            dx = -5; dy = 3;
+            dx = ULpos.transform.position.x; dy = ULpos.transform.position.y;
         }
         if (desPos == Pos.UR)
         {
-            dx = 7.5f; dy = 3;
+            dx = URpos.transform.position.x; dy = URpos.transform.position.y;
         }
 
-        float x = Mathf.Lerp(transform.position.x, dx, 0.05f);
-        float y = Mathf.Lerp(transform.position.y, dy, 0.05f);
-        float z = transform.position.z + 0.05f;
+        float x = Mathf.Lerp(transform.position.x, dx, 0.005f);
+        float y = Mathf.Lerp(transform.position.y, dy, 0.005f);
+        float z = transform.position.z + 0.005f;
         transform.position = new Vector3(x, y, z);
     }
 
