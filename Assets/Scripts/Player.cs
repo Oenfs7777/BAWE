@@ -33,10 +33,13 @@ public class Player : MonoBehaviour
     public GameObject DLpos, DRpos, URpos, ULpos;
 
     //玩家已就定位
-    public bool stay = false;
+    bool stay = false;
 
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     Vector2 startTouchPos;
+
+    //玩家移動速度
+    public float speed = 3;
 
     //玩家目標位置
     Pos desPos = Pos.DL;
@@ -71,7 +74,11 @@ public class Player : MonoBehaviour
             if (dir == Direction.DownLeft)
                 GoDL();
         }
-            UpdatePos();
+        UpdatePos();
+    }
+
+    private void FixedUpdate()
+    {
     }
 
     //玩家是否就定位
@@ -217,9 +224,9 @@ public class Player : MonoBehaviour
             dx = URpos.transform.position.x; dy = URpos.transform.position.y;
         }
 
-        float x = Mathf.Lerp(transform.position.x, dx, 0.005f);
-        float y = Mathf.Lerp(transform.position.y, dy, 0.005f);
-        float z = transform.position.z + 0.005f;
+        float x = Mathf.Lerp(transform.position.x, dx, speed * Time.deltaTime);
+        float y = Mathf.Lerp(transform.position.y, dy, speed * Time.deltaTime);
+        float z = transform.position.z + speed * Time.deltaTime;
         transform.position = new Vector3(x, y, z);
     }
 
