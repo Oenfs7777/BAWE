@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     //玩家可待的四個角落
     public GameObject DLpos, DRpos, URpos, ULpos;
 
+    public SpriteRenderer player;
+
     //玩家已就定位
     bool stay = false;
 
@@ -77,10 +79,6 @@ public class Player : MonoBehaviour
         UpdatePos();
     }
 
-    private void FixedUpdate()
-    {
-    }
-
     //玩家是否就定位
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -88,6 +86,10 @@ public class Player : MonoBehaviour
         {
             stay = true;
         }
+        if (collision.name == "DL" || collision.name == "UL")
+            player.flipX = true;
+        if (collision.name == "DR" || collision.name == "UR")
+            player.flipX = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
