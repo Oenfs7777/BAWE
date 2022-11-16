@@ -29,6 +29,11 @@ public enum Direction
 
 public class Player : MonoBehaviour
 {
+    //動畫控制器
+    private Animator anim;
+    //玩家身體
+    private CapsuleCollider2D myBody;
+
     //玩家可待的四個角落
     public GameObject DLpos, DRpos, URpos, ULpos;
 
@@ -41,11 +46,20 @@ public class Player : MonoBehaviour
     private Vector2 startTouchPos;
     private Vector3 startMousePos = Vector3.zero;
 
+
     //玩家移動速度
     public float speed = 3;
 
     //玩家目標位置
     Pos desPos = Pos.DL;
+
+    private void Start()
+    {
+        //獲取受傷主體
+        myBody = GetComponent<CapsuleCollider2D>();
+        //獲得動畫控制器
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -118,17 +132,33 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
             return Direction.DownRight;
         if (Input.GetKeyDown(KeyCode.W))
+        {
+            anim.SetTrigger("IsJump");
+            anim.ResetTrigger("IsFall");
             return Direction.Up;
+        }
         if (Input.GetKeyDown(KeyCode.X))
+        {
+            anim.SetTrigger("IsFall");
+            anim.ResetTrigger("IsJump");
             return Direction.Down;
+        }
         if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetTrigger("IsSprint");
             return Direction.Left;
+        }
         if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetTrigger("IsSprint");
             return Direction.Right;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+            anim.SetBool("IsBattleStart", true);//進入戰鬥待機
         return Direction.None;
     }
 
-    // 觸控滑動控制
+    //滑動控制
     private Direction GetTouchSwipeDirection()
     {
         //Touch touch = Input.GetTouch(0);
@@ -159,6 +189,7 @@ public class Player : MonoBehaviour
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Left");
+                            anim.SetTrigger("IsFall");
                             return Direction.Left;
                         }
                         else if (delta.y < -200)
@@ -178,6 +209,7 @@ public class Player : MonoBehaviour
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Right");
+                            anim.SetTrigger("IsFall");
                             return Direction.Right;
                         }
                         else if (delta.y < -200)
@@ -198,11 +230,13 @@ public class Player : MonoBehaviour
                     if (delta.y > 0)
                     {
                         Debug.Log("Down");
+                        anim.SetTrigger("IsFall");
                         return Direction.Down;
                     }
                     else
                     {
                         Debug.Log("Up");
+                        anim.SetTrigger("IsJump");
                         return Direction.Up;
                     }
                 }
@@ -299,6 +333,9 @@ public class Player : MonoBehaviour
     {
         //目標位置 to 座標
         float dx = 0, dy = 0;
+
+
+
         if (desPos == Pos.DL)
         {
             dx = DLpos.transform.position.x; dy = DLpos.transform.position.y;
@@ -316,9 +353,9 @@ public class Player : MonoBehaviour
             dx = URpos.transform.position.x; dy = URpos.transform.position.y;
         }
 
-        float x = Mathf.Lerp(transform.position.x, dx, speed * Time.deltaTime);
+        float   x = Mathf.Lerp(transform.position.x, dx, speed * Time.deltaTime);
         float y = Mathf.Lerp(transform.position.y, dy, speed * Time.deltaTime);
-        float z = transform.position.z + speed * Time.deltaTime;
+        float z = transform.position.z + 0.0f;
         transform.position = new Vector3(x, y, z);
     }
 
