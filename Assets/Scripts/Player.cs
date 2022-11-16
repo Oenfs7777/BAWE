@@ -38,7 +38,8 @@ public class Player : MonoBehaviour
     bool stay = false;
 
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
-    Vector2 startTouchPos;
+    private Vector2 startTouchPos;
+    private Vector3 startMousePos = Vector3.zero;
 
     //玩家移動速度
     public float speed = 3;
@@ -49,8 +50,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //觸控
-        Direction dir = GetTouchSwipeDirection();
+        //觸控 + 滑鼠
+        Direction touchDir = GetTouchSwipeDirection();
+        Direction mouseDir = GetMouseSwipeDirection();
+        Direction dir = touchDir;
+        if (dir == Direction.None)
+        {
+            dir = mouseDir;
+        }
 
         //鍵盤
         if (dir == Direction.None)
@@ -121,7 +128,7 @@ public class Player : MonoBehaviour
         return Direction.None;
     }
 
-    //滑動控制
+    // 觸控滑動控制
     private Direction GetTouchSwipeDirection()
     {
         //Touch touch = Input.GetTouch(0);
@@ -199,6 +206,89 @@ public class Player : MonoBehaviour
                         return Direction.Up;
                     }
                 }
+            }
+        }
+        return Direction.None;
+    }
+
+    // 滑鼠滑動控制
+    private Direction GetMouseSwipeDirection()
+    {
+        // 如果沒碰到 UI
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            // 觸碰開始（只執行一次）
+            if (Input.GetMouseButtonDown(0) && startMousePos == Vector3.zero)
+            {
+                // 紀錄觸碰座標
+                startMousePos = Input.mousePosition;
+            }
+
+            // 觸碰結束（只執行一次）
+            if (Input.GetMouseButtonUp(0) && startMousePos != Vector3.zero)
+            {
+                // 計算觸碰滑動距離
+                Vector2 delta = startMousePos - Input.mousePosition;
+
+                //左右 or 斜向滑動
+                if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+                {
+                    //Debug.Log("touched");
+                    //向左
+                    if (delta.x > 0)
+                    {
+                        if (delta.y > -200 && delta.y < 200)
+                        {
+                            Debug.Log("Left");
+                            return Direction.Left;
+                        }
+                        else if (delta.y < -200)
+                        {
+                            Debug.Log("UpL");
+                            return Direction.UpLeft;
+                        }
+                        else if (delta.y > 200)
+                        {
+                            Debug.Log("DownL");
+                            return Direction.DownLeft;
+                        }
+                    }
+                    //向右
+                    else
+                    {
+                        if (delta.y > -200 && delta.y < 200)
+                        {
+                            Debug.Log("Right");
+                            return Direction.Right;
+                        }
+                        else if (delta.y < -200)
+                        {
+                            Debug.Log("UpR");
+                            return Direction.UpRight;
+                        }
+                        else if (delta.y > 200)
+                        {
+                            Debug.Log("DownR");
+                            return Direction.DownRight;
+                        }
+                    }
+                }
+                //上下滑動
+                else
+                {
+                    if (delta.y > 0)
+                    {
+                        Debug.Log("Down");
+                        return Direction.Down;
+                    }
+                    else
+                    {
+                        Debug.Log("Up");
+                        return Direction.Up;
+                    }
+                }
+
+                startMousePos = Vector3.zero;
             }
         }
         return Direction.None;
