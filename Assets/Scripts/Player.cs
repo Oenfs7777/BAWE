@@ -39,11 +39,7 @@ public class Player : MonoBehaviour
     public GameObject DLpos, DRpos, URpos, ULpos;
 
     // 玩家定位點
-    private bool
-    PosUR,
-    PosUL,
-    PosDR,
-    PosDL;
+    private bool PosUR, PosUL, PosDR, PosDL;
 
     // 玩家外觀
     public SpriteRenderer player;
@@ -165,24 +161,36 @@ public class Player : MonoBehaviour
             return Direction.DownRight;
         if (Input.GetKeyDown(KeyCode.W))
         {
-            anim.SetTrigger("IsJump");
-            anim.ResetTrigger("IsFall");
+            if (PosDL || PosDR)
+            {
+                anim.SetTrigger("IsJump");
+            }
+            // anim.ResetTrigger("IsFall"); 這作用是啥？
             return Direction.Up;
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            anim.SetTrigger("IsFall");
-            anim.ResetTrigger("IsJump");
+            if (PosUL || PosUR)
+            {
+                anim.SetTrigger("IsFall");
+            }
+            // anim.ResetTrigger("IsJump"); 刪了好像也沒影響？
             return Direction.Down;
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            anim.SetTrigger("IsSprint");
+            if (PosDR || PosUR)
+            {
+                anim.SetTrigger("IsSprint");
+            }
             return Direction.Left;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            anim.SetTrigger("IsSprint");
+            if (PosDL || PosUL)
+            {
+                anim.SetTrigger("IsSprint");
+            }
             return Direction.Right;
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -220,7 +228,8 @@ public class Player : MonoBehaviour
                             Debug.Log("Left");
                             if (PosDR || PosUR)
                             {
-                                anim.SetTrigger("IsFall");
+                                // anim.SetTrigger("IsFall");
+                                anim.SetTrigger("IsSprint");
                             }
                             return Direction.Left;
                         }
@@ -243,7 +252,8 @@ public class Player : MonoBehaviour
                             Debug.Log("Right");
                             if (PosDL || PosUL)
                             {
-                                anim.SetTrigger("IsFall");
+                                // anim.SetTrigger("IsFall");
+                                anim.SetTrigger("IsSprint");
                             }
                             return Direction.Right;
                         }
@@ -316,7 +326,8 @@ public class Player : MonoBehaviour
                             Debug.Log("Left");
                             if (PosDR || PosUR)
                             {
-                                anim.SetTrigger("IsFall");
+                                // anim.SetTrigger("IsFall");
+                                anim.SetTrigger("IsSprint");
                             }
                             return Direction.Left;
                         }
@@ -339,7 +350,8 @@ public class Player : MonoBehaviour
                             Debug.Log("Right");
                             if (PosDL || PosUL)
                             {
-                                anim.SetTrigger("IsFall");
+                                // anim.SetTrigger("IsFall");
+                                anim.SetTrigger("IsSprint");
                             }
                             return Direction.Right;
                         }
