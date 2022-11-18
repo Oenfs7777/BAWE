@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//玩家位置
+// 玩家位置
 public enum Pos
 {
     UR,
@@ -13,7 +13,7 @@ public enum Pos
     DL
 }
 
-//可前往的方向
+// 可前往的方向
 public enum Direction
 {
     None,
@@ -29,17 +29,26 @@ public enum Direction
 
 public class Player : MonoBehaviour
 {
-    //動畫控制器
+    // 動畫控制器
     private Animator anim;
-    //玩家身體
+
+    // 玩家身體
     private CapsuleCollider2D myBody;
 
-    //玩家可待的四個角落
+    // 玩家可待的四個角落
     public GameObject DLpos, DRpos, URpos, ULpos;
 
+    // 玩家定位點
+    private bool
+    PosUR,
+    PosUL,
+    PosDR,
+    PosDL;
+
+    // 玩家外觀
     public SpriteRenderer player;
 
-    //玩家已就定位
+    // 玩家已就定位
     bool stay = false;
 
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
@@ -47,24 +56,24 @@ public class Player : MonoBehaviour
     private Vector3 startMousePos = Vector3.zero;
 
 
-    //玩家移動速度
+    // 玩家移動速度
     public float speed = 3;
 
-    //玩家目標位置
+    // 玩家目標位置
     Pos desPos = Pos.DL;
 
     private void Start()
     {
-        //獲取受傷主體
+        // 獲取受傷主體
         myBody = GetComponent<CapsuleCollider2D>();
-        //獲得動畫控制器
+        // 獲得動畫控制器
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //觸控 + 滑鼠
+        // 觸控 + 滑鼠
         Direction touchDir = GetTouchSwipeDirection();
         Direction mouseDir = GetMouseSwipeDirection();
         Direction dir = touchDir;
@@ -73,13 +82,13 @@ public class Player : MonoBehaviour
             dir = mouseDir;
         }
 
-        //鍵盤
+        // 鍵盤
         if (dir == Direction.None)
             dir = KeyBoardCon();
 
         if (stay)
         {
-            //控制方向
+            // 控制方向
             if (dir == Direction.Up)
                 GoU();
             if (dir == Direction.Down)
@@ -97,20 +106,43 @@ public class Player : MonoBehaviour
             if (dir == Direction.DownLeft)
                 GoDL();
         }
+        if (stay == false)
+        {
+            PosDL = false;
+            PosDR = false;
+            PosUL = false;
+            PosUR = false;
+        }
         UpdatePos();
     }
 
-    //玩家是否就定位
+    // 玩家是否就定位
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Platform")
         {
             stay = true;
         }
-        if (collision.name == "DL" || collision.name == "UL")
+        if (collision.name == "DL")
+        {
+            PosDL = true;
             player.flipX = true;
-        if (collision.name == "DR" || collision.name == "UR")
+        }
+        if (collision.name == "UL")
+        {
+            PosUL = true;
+            player.flipX = true;
+        }
+        if (collision.name == "DR")
+        {
+            PosDR = true;
             player.flipX = false;
+        }
+        if (collision.name == "UR")
+        {
+            PosUR = true;
+            player.flipX = false;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -120,7 +152,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //鍵盤控制
+    // 鍵盤控制
     private Direction KeyBoardCon()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -154,15 +186,13 @@ public class Player : MonoBehaviour
             return Direction.Right;
         }
         if (Input.GetKeyDown(KeyCode.S))
-            anim.SetBool("IsBattleStart", true);//進入戰鬥待機
+            anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
         return Direction.None;
     }
 
-    //滑動控制
+    // 滑動控制
     private Direction GetTouchSwipeDirection()
     {
-        //Touch touch = Input.GetTouch(0);
-
         // 如果有觸碰 (touches陣列有內容)
         if (EventSystem.current.currentSelectedGameObject == null & Input.touches.Length > 0)
         {
@@ -179,17 +209,19 @@ public class Player : MonoBehaviour
                 // 計算觸碰滑動距離
                 Vector2 delta = startTouchPos - Input.touches[0].position;
 
-                //左右 or 斜向滑動
+                // 左右 or 斜向滑動
                 if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
                 {
-                    //Debug.Log("touched");
-                    //向左
+                    // 向左
                     if (delta.x > 0)
                     {
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Left");
-                            anim.SetTrigger("IsFall");
+                            if (PosDR || PosUR)
+                            {
+                                anim.SetTrigger("IsFall");
+                            }
                             return Direction.Left;
                         }
                         else if (delta.y < -200)
@@ -203,13 +235,16 @@ public class Player : MonoBehaviour
                             return Direction.DownLeft;
                         }
                     }
-                    //向右
+                    // 向右
                     else
                     {
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Right");
-                            anim.SetTrigger("IsFall");
+                            if (PosDL || PosUL)
+                            {
+                                anim.SetTrigger("IsFall");
+                            }
                             return Direction.Right;
                         }
                         else if (delta.y < -200)
@@ -224,19 +259,25 @@ public class Player : MonoBehaviour
                         }
                     }
                 }
-                //上下滑動
+                // 上下滑動
                 else
                 {
                     if (delta.y > 0)
                     {
                         Debug.Log("Down");
-                        anim.SetTrigger("IsFall");
+                        if (PosUL || PosUR)
+                        {
+                            anim.SetTrigger("IsFall");
+                        }
                         return Direction.Down;
                     }
                     else
                     {
                         Debug.Log("Up");
-                        anim.SetTrigger("IsJump");
+                        if (PosDL || PosDR)
+                        {
+                            anim.SetTrigger("IsJump");
+                        }
                         return Direction.Up;
                     }
                 }
@@ -264,16 +305,19 @@ public class Player : MonoBehaviour
                 // 計算觸碰滑動距離
                 Vector2 delta = startMousePos - Input.mousePosition;
 
-                //左右 or 斜向滑動
+                // 左右 or 斜向滑動
                 if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
                 {
-                    //Debug.Log("touched");
-                    //向左
+                    // 向左
                     if (delta.x > 0)
                     {
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Left");
+                            if (PosDR || PosUR)
+                            {
+                                anim.SetTrigger("IsFall");
+                            }
                             return Direction.Left;
                         }
                         else if (delta.y < -200)
@@ -287,12 +331,16 @@ public class Player : MonoBehaviour
                             return Direction.DownLeft;
                         }
                     }
-                    //向右
+                    // 向右
                     else
                     {
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Right");
+                            if (PosDL || PosUL)
+                            {
+                                anim.SetTrigger("IsFall");
+                            }
                             return Direction.Right;
                         }
                         else if (delta.y < -200)
@@ -307,34 +355,39 @@ public class Player : MonoBehaviour
                         }
                     }
                 }
-                //上下滑動
+                // 上下滑動
                 else
                 {
                     if (delta.y > 0)
                     {
                         Debug.Log("Down");
+                        if (PosUL || PosUR)
+                        {
+                            anim.SetTrigger("IsFall");
+                        }
                         return Direction.Down;
                     }
                     else
                     {
                         Debug.Log("Up");
+                        if (PosDL || PosDR)
+                        {
+                            anim.SetTrigger("IsJump");
+                        }
                         return Direction.Up;
                     }
                 }
-
                 startMousePos = Vector3.zero;
             }
         }
         return Direction.None;
     }
 
-    //更新玩家位置
+    // 更新玩家位置
     private void UpdatePos()
     {
-        //目標位置 to 座標
+        // 目標位置 to 座標
         float dx = 0, dy = 0;
-
-
 
         if (desPos == Pos.DL)
         {
@@ -353,13 +406,13 @@ public class Player : MonoBehaviour
             dx = URpos.transform.position.x; dy = URpos.transform.position.y;
         }
 
-        float   x = Mathf.Lerp(transform.position.x, dx, speed * Time.deltaTime);
+        float x = Mathf.Lerp(transform.position.x, dx, speed * Time.deltaTime);
         float y = Mathf.Lerp(transform.position.y, dy, speed * Time.deltaTime);
         float z = transform.position.z + 0.0f;
         transform.position = new Vector3(x, y, z);
     }
 
-    //前往的方向控制
+    // 前往的方向控制
     private void GoU()
     {
         if (desPos == Pos.DL)
