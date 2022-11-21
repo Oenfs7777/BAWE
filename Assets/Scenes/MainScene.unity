@@ -2256,7 +2256,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1657590735}
-  - component: {fileID: 1657590734}
   - component: {fileID: 1657590733}
   m_Layer: 0
   m_Name: MDL
@@ -2317,14 +2316,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!222 &1657590734
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657590732}
-  m_CullTransparentMesh: 1
 --- !u!224 &1657590735
 RectTransform:
   m_ObjectHideFlags: 0
