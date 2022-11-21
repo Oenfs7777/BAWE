@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     // Start is called before the first frame update
     public int health;
+    
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -32,4 +33,5 @@ public class Health : MonoBehaviour
             TakeDamage(5);
         }
     }
+   
 }
