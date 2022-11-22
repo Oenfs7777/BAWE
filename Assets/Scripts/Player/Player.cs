@@ -80,8 +80,11 @@ public class Player : MonoBehaviour
 
         // 鍵盤
         if (dir == Direction.None)
+        {
             dir = KeyBoardCon();
+        }
 
+        // 定位後的動作
         if (stay)
         {
             // 控制方向
@@ -109,6 +112,7 @@ public class Player : MonoBehaviour
             PosUL = false;
             PosUR = false;
         }
+
         UpdatePos();
     }
 
@@ -161,36 +165,18 @@ public class Player : MonoBehaviour
             return Direction.DownRight;
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (PosDL || PosDR)
-            {
-                anim.SetTrigger("IsJump");
-                anim.ResetTrigger("IsFall");
-            }
             return Direction.Up;
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (PosUL || PosUR)
-            {
-                anim.SetTrigger("IsFall");
-                anim.ResetTrigger("IsJump");
-            }
             return Direction.Down;
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if (PosDR || PosUR)
-            {
-                anim.SetTrigger("IsSprint");
-            }
             return Direction.Left;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (PosDL || PosUL)
-            {
-                anim.SetTrigger("IsSprint");
-            }
             return Direction.Right;
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -226,11 +212,6 @@ public class Player : MonoBehaviour
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Left");
-                            if (PosDR || PosUR)
-                            {
-                                anim.SetTrigger("IsFall");
-                                anim.SetTrigger("IsSprint");
-                            }
                             return Direction.Left;
                         }
                         else if (delta.y < -200)
@@ -249,12 +230,6 @@ public class Player : MonoBehaviour
                     {
                         if (delta.y > -200 && delta.y < 200)
                         {
-                            Debug.Log("Right");
-                            if (PosDL || PosUL)
-                            {
-                                anim.SetTrigger("IsFall");
-                                anim.SetTrigger("IsSprint");
-                            }
                             return Direction.Right;
                         }
                         else if (delta.y < -200)
@@ -275,19 +250,11 @@ public class Player : MonoBehaviour
                     if (delta.y > 0)
                     {
                         Debug.Log("Down");
-                        if (PosUL || PosUR)
-                        {
-                            anim.SetTrigger("IsFall");
-                        }
                         return Direction.Down;
                     }
                     else
                     {
                         Debug.Log("Up");
-                        if (PosDL || PosDR)
-                        {
-                            anim.SetTrigger("IsJump");
-                        }
                         return Direction.Up;
                     }
                 }
@@ -324,11 +291,6 @@ public class Player : MonoBehaviour
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Left");
-                            if (PosDR || PosUR)
-                            {
-                                anim.SetTrigger("IsFall");
-                                anim.SetTrigger("IsSprint");
-                            }
                             return Direction.Left;
                         }
                         else if (delta.y < -200)
@@ -348,11 +310,6 @@ public class Player : MonoBehaviour
                         if (delta.y > -200 && delta.y < 200)
                         {
                             Debug.Log("Right");
-                            if (PosDL || PosUL)
-                            {
-                                anim.SetTrigger("IsFall");
-                                anim.SetTrigger("IsSprint");
-                            }
                             return Direction.Right;
                         }
                         else if (delta.y < -200)
@@ -373,19 +330,11 @@ public class Player : MonoBehaviour
                     if (delta.y > 0)
                     {
                         Debug.Log("Down");
-                        if (PosUL || PosUR)
-                        {
-                            anim.SetTrigger("IsFall");
-                        }
                         return Direction.Down;
                     }
                     else
                     {
                         Debug.Log("Up");
-                        if (PosDL || PosDR)
-                        {
-                            anim.SetTrigger("IsJump");
-                        }
                         return Direction.Up;
                     }
                 }
@@ -424,53 +373,91 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(x, y, z);
     }
 
+    // 攻擊
+    private void PlayerAttack()
+    {
+
+    }
+
     // 前往的方向控制
     private void GoU()
     {
         if (desPos == Pos.DL)
             desPos = Pos.UL;
         else if (desPos == Pos.DR)
+        {
             desPos = Pos.UR;
+        }
+        if (PosDL || PosDR)
+        {
+            anim.SetTrigger("IsJump");
+            anim.ResetTrigger("IsFall");
+        }
+
     }
     private void GoD()
     {
         if (desPos == Pos.UL)
             desPos = Pos.DL;
         else if (desPos == Pos.UR)
+        {
             desPos = Pos.DR;
+        }
+        if (PosUL || PosUR)
+        {
+            anim.SetTrigger("IsFall");
+            anim.ResetTrigger("IsJump");
+        }
     }
     private void GoL()
     {
         if (desPos == Pos.DR)
             desPos = Pos.DL;
         else if (desPos == Pos.UR)
+        {
             desPos = Pos.UL;
+        }
+        if (PosDR || PosUR)
+        {
+            anim.SetTrigger("IsSprint");
+        }
     }
     private void GoR()
     {
         if (desPos == Pos.DL)
             desPos = Pos.DR;
         else if (desPos == Pos.UL)
+        {
             desPos = Pos.UR;
+        }
+        if (PosDL || PosUL)
+        {
+            anim.SetTrigger("IsSprint");
+        }
     }
     private void GoUR()
     {
         if (desPos == Pos.DL)
-            desPos = Pos.UR;
+        {
+        }
     }
     private void GoUL()
     {
         if (desPos == Pos.DR)
-            desPos = Pos.UL;
+        {
+        }
     }
     private void GoDR()
     {
         if (desPos == Pos.UL)
-            desPos = Pos.DR;
+        {
+        }
+
     }
     private void GoDL()
     {
         if (desPos == Pos.UR)
-            desPos = Pos.DL;
+        {
+        }
     }
 }
