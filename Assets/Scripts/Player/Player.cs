@@ -4,29 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// 玩家位置
-public enum Pos
-{
-    UR,
-    UL,
-    DR,
-    DL
-}
-
-// 可前往的方向
-public enum Direction
-{
-    None,
-    Up,
-    Down,
-    Left,
-    Right,
-    UpRight,
-    UpLeft,
-    DownRight,
-    DownLeft
-}
-
 public class Player : MonoBehaviour
 {
     // 動畫控制器
@@ -49,8 +26,6 @@ public class Player : MonoBehaviour
 
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     private Vector2 startTouchPos;
-    private Vector3 startMousePos = Vector3.zero;
-
 
     // 玩家移動速度
     public float speed = 3;
@@ -291,12 +266,7 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(x, y, z);
     }
 
-    // 攻擊
-    private void PlayerAttack()
-    {
-    }
-
-    // 前往的方向控制
+    // 移動的方向控制
     private void GoU()
     {
         if (desPos == Pos.DL)
@@ -352,22 +322,27 @@ public class Player : MonoBehaviour
             anim.SetTrigger("IsSprint");
         }
     }
+
+    // 攻擊的方向控制
     private void GoUR()
     {
         if (desPos == Pos.DL)
         {
+            PlayerAttack(Direction.UpRight);
         }
     }
     private void GoUL()
     {
         if (desPos == Pos.DR)
         {
+            PlayerAttack(Direction.UpLeft);
         }
     }
     private void GoDR()
     {
         if (desPos == Pos.UL)
         {
+            PlayerAttack(Direction.DownRight);
         }
 
     }
@@ -375,6 +350,20 @@ public class Player : MonoBehaviour
     {
         if (desPos == Pos.UR)
         {
+            PlayerAttack(Direction.DownLeft);
         }
+    }
+
+    // 攻擊
+    private void PlayerAttack(Direction AtkDir)
+    {
+        if (AtkDir == Direction.UpRight)
+        { }
+        if (AtkDir == Direction.UpLeft)
+        { }
+        if (AtkDir == Direction.DownRight)
+        { }
+        if (AtkDir == Direction.DownLeft)
+        { }
     }
 }
