@@ -64,19 +64,18 @@ public class Player : MonoBehaviour
         myBody = GetComponent<CapsuleCollider2D>();
         // 獲得動畫控制器
         anim = GetComponent<Animator>();
+
+        Debug.Log("如需用滑鼠滑動控制，請： Window > General > Divice Simulator");
+        Debug.Log("將上排工具列第二項（預設應該是 iPad Air ）改為 Google Pixel 2");
+        Debug.Log("工具列第五項可讓螢幕旋轉九十度，接下來即可直接用滑鼠操作");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 觸控 + 滑鼠
+        // 觸控
         Direction touchDir = GetTouchSwipeDirection();
-        Direction mouseDir = GetMouseSwipeDirection();
         Direction dir = touchDir;
-        if (dir == Direction.None)
-        {
-            dir = mouseDir;
-        }
 
         // 鍵盤
         if (dir == Direction.None)
@@ -263,87 +262,6 @@ public class Player : MonoBehaviour
         return Direction.None;
     }
 
-    // 滑鼠滑動控制
-    private Direction GetMouseSwipeDirection()
-    {
-        // 如果沒碰到 UI
-        if (EventSystem.current.currentSelectedGameObject == null)
-        {
-            // 觸碰開始（只執行一次）
-            if (Input.GetMouseButtonDown(0) && startMousePos == Vector3.zero)
-            {
-                // 紀錄觸碰座標
-                startMousePos = Input.mousePosition;
-            }
-
-            // 觸碰結束（只執行一次）
-            if (Input.GetMouseButtonUp(0) && startMousePos != Vector3.zero)
-            {
-                // 計算觸碰滑動距離
-                Vector2 delta = startMousePos - Input.mousePosition;
-
-                // 左右 or 斜向滑動
-                if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
-                {
-                    // 向左
-                    if (delta.x > 0)
-                    {
-                        if (delta.y > -200 && delta.y < 200)
-                        {
-                            Debug.Log("Left");
-                            return Direction.Left;
-                        }
-                        else if (delta.y < -200)
-                        {
-                            Debug.Log("UpL");
-                            return Direction.UpLeft;
-                        }
-                        else if (delta.y > 200)
-                        {
-                            Debug.Log("DownL");
-                            return Direction.DownLeft;
-                        }
-                    }
-                    // 向右
-                    else
-                    {
-                        if (delta.y > -200 && delta.y < 200)
-                        {
-                            Debug.Log("Right");
-                            return Direction.Right;
-                        }
-                        else if (delta.y < -200)
-                        {
-                            Debug.Log("UpR");
-                            return Direction.UpRight;
-                        }
-                        else if (delta.y > 200)
-                        {
-                            Debug.Log("DownR");
-                            return Direction.DownRight;
-                        }
-                    }
-                }
-                // 上下滑動
-                else
-                {
-                    if (delta.y > 0)
-                    {
-                        Debug.Log("Down");
-                        return Direction.Down;
-                    }
-                    else
-                    {
-                        Debug.Log("Up");
-                        return Direction.Up;
-                    }
-                }
-                startMousePos = Vector3.zero;
-            }
-        }
-        return Direction.None;
-    }
-
     // 更新玩家位置
     private void UpdatePos()
     {
@@ -376,7 +294,6 @@ public class Player : MonoBehaviour
     // 攻擊
     private void PlayerAttack()
     {
-
     }
 
     // 前往的方向控制
