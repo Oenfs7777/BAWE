@@ -61,23 +61,7 @@ public class Player : MonoBehaviour
         // 定位後的動作
         if (stay)
         {
-            // 控制方向
-            if (dir == Direction.Up)
-                GoU();
-            if (dir == Direction.Down)
-                GoD();
-            if (dir == Direction.Left)
-                GoL();
-            if (dir == Direction.Right)
-                GoR();
-            if (dir == Direction.UpRight)
-                GoUR();
-            if (dir == Direction.UpLeft)
-                GoUL();
-            if (dir == Direction.DownRight)
-                GoDR();
-            if (dir == Direction.DownLeft)
-                GoDL();
+            SwipeDir(dir);
         }
         if (stay == false)
         {
@@ -266,91 +250,93 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(x, y, z);
     }
 
-    // 移動的方向控制
-    private void GoU()
+    // 方向控制
+    public void SwipeDir(Direction SwipeTo)
     {
-        if (desPos == Pos.DL)
-            desPos = Pos.UL;
-        else if (desPos == Pos.DR)
+        // 移動的方向控制
+        if (SwipeTo == Direction.Up)
         {
-            desPos = Pos.UR;
+            if (desPos == Pos.DL)
+                desPos = Pos.UL;
+            else if (desPos == Pos.DR)
+            {
+                desPos = Pos.UR;
+            }
+            if (PosDL || PosDR)
+            {
+                anim.SetTrigger("IsJump");
+                anim.ResetTrigger("IsFall");
+            }
         }
-        if (PosDL || PosDR)
+        if (SwipeTo == Direction.Down)
         {
-            anim.SetTrigger("IsJump");
-            anim.ResetTrigger("IsFall");
+            if (desPos == Pos.UL)
+                desPos = Pos.DL;
+            else if (desPos == Pos.UR)
+            {
+                desPos = Pos.DR;
+            }
+            if (PosUL || PosUR)
+            {
+                anim.SetTrigger("IsFall");
+                anim.ResetTrigger("IsJump");
+            }
+        }
+        if (SwipeTo == Direction.Left)
+        {
+            if (desPos == Pos.DR)
+                desPos = Pos.DL;
+            else if (desPos == Pos.UR)
+            {
+                desPos = Pos.UL;
+            }
+            if (PosDR || PosUR)
+            {
+                anim.SetTrigger("IsSprint");
+            }
+        }
+        if (SwipeTo == Direction.Right)
+        {
+            if (desPos == Pos.DL)
+                desPos = Pos.DR;
+            else if (desPos == Pos.UL)
+            {
+                desPos = Pos.UR;
+            }
+            if (PosDL || PosUL)
+            {
+                anim.SetTrigger("IsSprint");
+            }
         }
 
-    }
-    private void GoD()
-    {
-        if (desPos == Pos.UL)
-            desPos = Pos.DL;
-        else if (desPos == Pos.UR)
+        // 攻擊的方向控制
+        if (SwipeTo == Direction.UpLeft)
         {
-            desPos = Pos.DR;
+            if (desPos == Pos.DR)
+            {
+                PlayerAttack(Direction.UpLeft);
+            }
         }
-        if (PosUL || PosUR)
+        if (SwipeTo == Direction.UpRight)
         {
-            anim.SetTrigger("IsFall");
-            anim.ResetTrigger("IsJump");
+            if (desPos == Pos.DL)
+            {
+                PlayerAttack(Direction.UpRight);
+            }
         }
-    }
-    private void GoL()
-    {
-        if (desPos == Pos.DR)
-            desPos = Pos.DL;
-        else if (desPos == Pos.UR)
+        if (SwipeTo == Direction.DownLeft)
         {
-            desPos = Pos.UL;
+            if (desPos == Pos.UR)
+            {
+                PlayerAttack(Direction.DownLeft);
+            }
         }
-        if (PosDR || PosUR)
+        if (SwipeTo == Direction.DownRight)
         {
-            anim.SetTrigger("IsSprint");
-        }
-    }
-    private void GoR()
-    {
-        if (desPos == Pos.DL)
-            desPos = Pos.DR;
-        else if (desPos == Pos.UL)
-        {
-            desPos = Pos.UR;
-        }
-        if (PosDL || PosUL)
-        {
-            anim.SetTrigger("IsSprint");
-        }
-    }
-
-    // 攻擊的方向控制
-    private void GoUR()
-    {
-        if (desPos == Pos.DL)
-        {
-            PlayerAttack(Direction.UpRight);
-        }
-    }
-    private void GoUL()
-    {
-        if (desPos == Pos.DR)
-        {
-            PlayerAttack(Direction.UpLeft);
-        }
-    }
-    private void GoDR()
-    {
-        if (desPos == Pos.UL)
-        {
-            PlayerAttack(Direction.DownRight);
-        }
-
-    }
-    private void GoDL()
-    {
-        if (desPos == Pos.UR)
-        {
-            PlayerAttack(Direction.DownLeft);
+            if (desPos == Pos.UL)
+            {
+                PlayerAttack(Direction.DownRight);
+            }
         }
     }
 
@@ -366,4 +352,6 @@ public class Player : MonoBehaviour
         if (AtkDir == Direction.DownLeft)
         { }
     }
+
+
 }
