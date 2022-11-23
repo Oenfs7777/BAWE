@@ -344,14 +344,20 @@ public class Player : MonoBehaviour
     private void PlayerAttack(Direction AtkDir)
     {
         if (AtkDir == Direction.UpRight)
-        { }
+        {
+            anim.Play("Player_Attack");
+        }
         if (AtkDir == Direction.UpLeft)
-        { }
+        {
+            anim.Play("Player_Attack");
+        }
         if (AtkDir == Direction.DownRight)
-        { }
+        {
+            anim.Play("Player_Attack");
+        }
         if (AtkDir == Direction.DownLeft)
-        { }
+        {
+            anim.Play("Player_Attack");
+        }
     }
-
-
 }
