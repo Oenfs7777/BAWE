@@ -345,19 +345,19 @@ public class Player : MonoBehaviour
     {
         if (AtkDir == Direction.UpRight)
         {
-            anim.Play("Player_Attack");
+            anim.SetTrigger("IsAtk");
         }
         if (AtkDir == Direction.UpLeft)
         {
-            anim.Play("Player_Attack");
+            anim.SetTrigger("IsAtk");
         }
         if (AtkDir == Direction.DownRight)
         {
-            anim.Play("Player_Attack");
+            anim.SetTrigger("IsAtk");
         }
         if (AtkDir == Direction.DownLeft)
         {
-            anim.Play("Player_Attack");
+            anim.SetTrigger("IsAtk");
         }
     }
 }
