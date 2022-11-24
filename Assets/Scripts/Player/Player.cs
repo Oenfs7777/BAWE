@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     // 玩家可待的四個角落
     public GameObject DLpos, DRpos, URpos, ULpos;
 
+    // 攻擊
+    public Transform AttackPoint;
+    public GameObject AttackObj;
+
     // 玩家定位點
     private bool PosUR, PosUL, PosDR, PosDL;
 
@@ -29,7 +33,7 @@ public class Player : MonoBehaviour
     private Vector2 startTouchPos;
 
     // 玩家移動速度
-    public float speed = 3;
+    public float PlayerSpeed = 3;
 
     // 玩家目標位置
     Pos desPos = Pos.DL;
@@ -267,8 +271,8 @@ public class Player : MonoBehaviour
             dx = URpos.transform.position.x; dy = URpos.transform.position.y;
         }
 
-        float x = Mathf.Lerp(transform.position.x, dx, speed * Time.deltaTime);
-        float y = Mathf.Lerp(transform.position.y, dy, speed * Time.deltaTime);
+        float x = Mathf.Lerp(transform.position.x, dx, PlayerSpeed * Time.deltaTime);
+        float y = Mathf.Lerp(transform.position.y, dy, PlayerSpeed * Time.deltaTime);
         float z = transform.position.z + 0.0f;
         transform.position = new Vector3(x, y, z);
     }
@@ -369,6 +373,7 @@ public class Player : MonoBehaviour
         if (AtkDir == Direction.UpRight)
         {
             anim.SetTrigger("IsAtk");
+            Instantiate(AttackObj, AttackPoint.position, AttackPoint.rotation);
         }
         if (AtkDir == Direction.UpLeft)
         {
