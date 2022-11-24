@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Ghost ghost;
     // 動畫控制器
     private Animator anim;
 
@@ -123,24 +124,46 @@ public class Player : MonoBehaviour
             return Direction.DownRight;
         if (Input.GetKeyDown(KeyCode.W))
         {
+            ghost.makeGhost = true;
             return Direction.Up;
+           
         }
+       
         if (Input.GetKeyDown(KeyCode.X))
         {
+            ghost.makeGhost = true;
             return Direction.Down;
         }
+      
         if (Input.GetKeyDown(KeyCode.A))
         {
+            ghost.makeGhost = true;
             return Direction.Left;
         }
+       
         if (Input.GetKeyDown(KeyCode.D))
         {
+            ghost.makeGhost = true;
             return Direction.Right;
+            
         }
+       
+
+
         if (Input.GetKeyDown(KeyCode.S))
+        
             anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
+
+       
+
+
         return Direction.None;
+
+       
     }
+   
+   
+       
 
     // 滑動控制
     private Direction GetTouchSwipeDirection()

@@ -2560,6 +2560,7 @@ GameObject:
   - component: {fileID: 1721532350}
   - component: {fileID: 1721532351}
   - component: {fileID: 1721532352}
+  - component: {fileID: 1721532353}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2646,6 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6e32e0378440cabe23345303f4c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost: {fileID: 1721532353}
   DLpos: {fileID: 763487756}
   DRpos: {fileID: 860957736}
   URpos: {fileID: 156131334}
@@ -2732,6 +2734,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1721532353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721532344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a633148d5aa5dc4da76460cfc7c34dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0.03
+  ghost: {fileID: 7000249623338775449, guid: 706f8ce0122283f41934babb4c9230d3, type: 3}
+  makeGhost: 0
 --- !u!1 &1766703657
 GameObject:
   m_ObjectHideFlags: 0
