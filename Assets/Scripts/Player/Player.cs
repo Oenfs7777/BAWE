@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         // 觸控
         Direction touchDir = GetTouchSwipeDirection();
         Direction dir = touchDir;
@@ -65,9 +64,7 @@ public class Player : MonoBehaviour
         // 鍵盤
         if (dir == Direction.None)
         {
-
             dir = KeyBoardCon();
-
         }
 
         // 定位後的動作
@@ -132,85 +129,28 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             ghost.makeGhost = true;
-<<<<<<< HEAD
-            return Direction.Up;
-
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            ghost.makeGhost = false;
-            
-
-        }
-
-=======
             return Direction.Up;         
         }      
->>>>>>> 56ec28880d9ce18637a406fdadfbe3773e8903a6
         if (Input.GetKeyDown(KeyCode.X))
         {
             ghost.makeGhost = true;
             return Direction.Down;
-<<<<<<< HEAD
-        }
-        if (Input.GetKeyUp(KeyCode.X))
-        {
-            ghost.makeGhost = false;
-
-
-        }
-
-=======
         }     
->>>>>>> 56ec28880d9ce18637a406fdadfbe3773e8903a6
         if (Input.GetKeyDown(KeyCode.A))
         {
             ghost.makeGhost = true;
             return Direction.Left;
-<<<<<<< HEAD
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            ghost.makeGhost = false;
-
-
-        }
-=======
         }     
->>>>>>> 56ec28880d9ce18637a406fdadfbe3773e8903a6
         if (Input.GetKeyDown(KeyCode.D))
         {
             ghost.makeGhost = true;
             return Direction.Right;            
         }
-<<<<<<< HEAD
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            ghost.makeGhost = false;
-
-
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.S))
-
-            anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
-
-
-
-
-        return Direction.None;
-
-
-
-
-=======
         if (Input.GetKeyDown(KeyCode.S))
         {
             anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
         }           
         return Direction.None;       
->>>>>>> 56ec28880d9ce18637a406fdadfbe3773e8903a6
     }
 
     // 滑動控制
@@ -310,7 +250,6 @@ public class Player : MonoBehaviour
         {
             dx = DLpos.transform.position.x; dy = DLpos.transform.position.y;
         }
-
         if (desPos == Pos.DR)
         {
             dx = DRpos.transform.position.x; dy = DRpos.transform.position.y;
@@ -323,13 +262,11 @@ public class Player : MonoBehaviour
         {
             dx = URpos.transform.position.x; dy = URpos.transform.position.y;
         }
-       
 
         float x = Mathf.Lerp(transform.position.x, dx, PlayerSpeed * Time.deltaTime);
         float y = Mathf.Lerp(transform.position.y, dy, PlayerSpeed * Time.deltaTime);
         float z = transform.position.z + 0.0f;
         transform.position = new Vector3(x, y, z);
-       
     }
 
     // 方向控制
