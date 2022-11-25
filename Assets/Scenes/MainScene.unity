@@ -2721,7 +2721,6 @@ MonoBehaviour:
   ULpos: {fileID: 1241524958}
   AttackPoint: {fileID: 165583709}
   AttackObj: {fileID: 2391207216865729090, guid: 0104a8d01d4aa4d9bbd982a25ca4fdb5, type: 3}
-  player: {fileID: 1721532345}
   PlayerSpeed: 10
 --- !u!61 &1721532349
 BoxCollider2D:
@@ -2815,7 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a633148d5aa5dc4da76460cfc7c34dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostDelay: 0.03
+  ghostDelay: 0.01
   ghost: {fileID: 7000249623338775449, guid: 706f8ce0122283f41934babb4c9230d3, type: 3}
   makeGhost: 0
 --- !u!1 &1766703657
