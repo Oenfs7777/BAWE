@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    // The 殘影
     public Ghost ghost;
+
     // 動畫控制器
     private Animator anim;
 
@@ -24,7 +26,9 @@ public class Player : MonoBehaviour
     private bool PosUR, PosUL, PosDR, PosDL;
 
     // 玩家外觀
-    public SpriteRenderer player;
+    //private SpriteRenderer player;
+    //private Rigidbody2D rigidbody2D;
+    private bool FacingLeft = true;
 
     // 玩家已就定位
     bool stay = false;
@@ -75,7 +79,6 @@ public class Player : MonoBehaviour
             PosUL = false;
             PosUR = false;
         }
-
         UpdatePos();
     }
 
@@ -89,23 +92,20 @@ public class Player : MonoBehaviour
         if (collision.name == "DL")
         {
             PosDL = true;
-            player.flipX = true;
         }
         if (collision.name == "UL")
         {
             PosUL = true;
-            player.flipX = true;
         }
         if (collision.name == "DR")
         {
             PosDR = true;
-            player.flipX = false;
         }
         if (collision.name == "UR")
         {
             PosUR = true;
-            player.flipX = false;
         }
+        Flip();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -129,45 +129,29 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             ghost.makeGhost = true;
-            return Direction.Up;
-           
-        }
-       
+            return Direction.Up;         
+        }      
         if (Input.GetKeyDown(KeyCode.X))
         {
             ghost.makeGhost = true;
             return Direction.Down;
-        }
-      
+        }     
         if (Input.GetKeyDown(KeyCode.A))
         {
             ghost.makeGhost = true;
             return Direction.Left;
-        }
-       
+        }     
         if (Input.GetKeyDown(KeyCode.D))
         {
             ghost.makeGhost = true;
-            return Direction.Right;
-            
+            return Direction.Right;            
         }
-       
-
-
         if (Input.GetKeyDown(KeyCode.S))
-        
+        {
             anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
-
-       
-
-
-        return Direction.None;
-
-       
+        }           
+        return Direction.None;       
     }
-   
-   
-       
 
     // 滑動控制
     private Direction GetTouchSwipeDirection()
@@ -248,6 +232,14 @@ public class Player : MonoBehaviour
         return Direction.None;
     }
 
+    private void Flip()
+    {
+        if (FacingLeft)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+    }
+
     // 更新玩家位置
     private void UpdatePos()
     {
@@ -294,6 +286,7 @@ public class Player : MonoBehaviour
                 anim.SetTrigger("IsJump");
                 anim.ResetTrigger("IsFall");
             }
+            FacingLeft = false;
         }
         if (SwipeTo == Direction.Down)
         {
@@ -308,6 +301,7 @@ public class Player : MonoBehaviour
                 anim.SetTrigger("IsFall");
                 anim.ResetTrigger("IsJump");
             }
+            FacingLeft = false;
         }
         if (SwipeTo == Direction.Left)
         {
@@ -321,6 +315,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetTrigger("IsSprint");
             }
+            FacingLeft = true;
         }
         if (SwipeTo == Direction.Right)
         {
@@ -334,6 +329,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetTrigger("IsSprint");
             }
+            FacingLeft = true;
         }
 
         // 攻擊的方向控制
