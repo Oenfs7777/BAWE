@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c400fb8c4bd81642e2a0d591288e1f75fc5ea525
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +39,7 @@ public class Ghost : MonoBehaviour
 
     }
 }
+<<<<<<< HEAD
 =======
 using System.Collections;
 using System.Collections.Generic;
@@ -75,3 +79,5 @@ public class Ghost : MonoBehaviour
     }
 }
 >>>>>>> 7a94973f01e0cf33ab82f47554515e21358c8c6d
+=======
+>>>>>>> c400fb8c4bd81642e2a0d591288e1f75fc5ea525
