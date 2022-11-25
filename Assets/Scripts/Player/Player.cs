@@ -128,22 +128,18 @@ public class Player : MonoBehaviour
             return Direction.DownRight;
         if (Input.GetKeyDown(KeyCode.W))
         {
-            ghost.makeGhost = true;
             return Direction.Up;         
         }      
         if (Input.GetKeyDown(KeyCode.X))
         {
-            ghost.makeGhost = true;
             return Direction.Down;
         }     
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ghost.makeGhost = true;
             return Direction.Left;
         }     
         if (Input.GetKeyDown(KeyCode.D))
         {
-            ghost.makeGhost = true;
             return Direction.Right;            
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -285,6 +281,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetTrigger("IsJump");
                 anim.ResetTrigger("IsFall");
+                ghost.makeGhost = true;
             }
             FacingLeft = false;
         }
@@ -300,6 +297,7 @@ public class Player : MonoBehaviour
             {
                 anim.SetTrigger("IsFall");
                 anim.ResetTrigger("IsJump");
+                ghost.makeGhost = true;
             }
             FacingLeft = false;
         }
@@ -314,6 +312,7 @@ public class Player : MonoBehaviour
             if (PosDR || PosUR)
             {
                 anim.SetTrigger("IsSprint");
+                ghost.makeGhost = true;
             }
             FacingLeft = true;
         }
@@ -328,6 +327,7 @@ public class Player : MonoBehaviour
             if (PosDL || PosUL)
             {
                 anim.SetTrigger("IsSprint");
+                ghost.makeGhost = true;
             }
             FacingLeft = true;
         }
