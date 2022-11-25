@@ -26,8 +26,6 @@ public class Player : MonoBehaviour
     private bool PosUR, PosUL, PosDR, PosDL;
 
     // 玩家外觀
-    //private SpriteRenderer player;
-    //private Rigidbody2D rigidbody2D;
     private bool FacingLeft = true;
 
     // 玩家已就定位
@@ -42,6 +40,7 @@ public class Player : MonoBehaviour
     // 玩家目標位置
     Pos desPos = Pos.DL;
 
+    // Start is called before the first frame update
     private void Start()
     {
         // 獲取受傷主體
@@ -80,189 +79,6 @@ public class Player : MonoBehaviour
             PosUR = false;
         }
         UpdatePos();
-    }
-
-    // 玩家是否就定位
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Platform")
-        {
-            stay = true;
-        }
-        if (collision.name == "DL")
-        {
-            PosDL = true;
-        }
-        if (collision.name == "UL")
-        {
-            PosUL = true;
-        }
-        if (collision.name == "DR")
-        {
-            PosDR = true;
-        }
-        if (collision.name == "UR")
-        {
-            PosUR = true;
-        }
-        Flip();
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Platform")
-        {
-            stay = false;
-        }
-    }
-
-    // 鍵盤控制
-    private Direction KeyBoardCon()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-            return Direction.UpLeft;
-        if (Input.GetKeyDown(KeyCode.Z))
-            return Direction.DownLeft;
-        if (Input.GetKeyDown(KeyCode.E))
-            return Direction.UpRight;
-        if (Input.GetKeyDown(KeyCode.C))
-            return Direction.DownRight;
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            return Direction.Up;         
-        }      
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            return Direction.Down;
-        }     
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            return Direction.Left;
-        }     
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            return Direction.Right;            
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
-        }           
-        return Direction.None;       
-    }
-
-    // 滑動控制
-    private Direction GetTouchSwipeDirection()
-    {
-        // 如果有觸碰 (touches陣列有內容)
-        if (EventSystem.current.currentSelectedGameObject == null & Input.touches.Length > 0)
-        {
-            // 觸碰開始（只執行一次）
-            if ((Input.touches[0]).phase == TouchPhase.Began)
-            {
-                // 紀錄觸碰座標
-                startTouchPos = Input.touches[0].position;
-            }
-
-            // 觸碰結束（只執行一次）
-            if (Input.touches[0].phase == TouchPhase.Ended)
-            {
-                // 計算觸碰滑動距離
-                Vector2 delta = startTouchPos - Input.touches[0].position;
-
-                // 左右 or 斜向滑動
-                if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
-                {
-                    // 向左
-                    if (delta.x > 0)
-                    {
-                        if (delta.y > -200 && delta.y < 200)
-                        {
-                            Debug.Log("Left");
-                            return Direction.Left;
-                        }
-                        else if (delta.y < -200)
-                        {
-                            Debug.Log("UpL");
-                            return Direction.UpLeft;
-                        }
-                        else if (delta.y > 200)
-                        {
-                            Debug.Log("DownL");
-                            return Direction.DownLeft;
-                        }
-                    }
-                    // 向右
-                    else
-                    {
-                        if (delta.y > -200 && delta.y < 200)
-                        {
-                            return Direction.Right;
-                        }
-                        else if (delta.y < -200)
-                        {
-                            Debug.Log("UpR");
-                            return Direction.UpRight;
-                        }
-                        else if (delta.y > 200)
-                        {
-                            Debug.Log("DownR");
-                            return Direction.DownRight;
-                        }
-                    }
-                }
-                // 上下滑動
-                else
-                {
-                    if (delta.y > 0)
-                    {
-                        Debug.Log("Down");
-                        return Direction.Down;
-                    }
-                    else
-                    {
-                        Debug.Log("Up");
-                        return Direction.Up;
-                    }
-                }
-            }
-        }
-        return Direction.None;
-    }
-
-    private void Flip()
-    {
-        if (FacingLeft)
-        {
-            transform.Rotate(0, 180, 0);
-        }
-    }
-
-    // 更新玩家位置
-    private void UpdatePos()
-    {
-        // 目標位置 to 座標
-        float dx = 0, dy = 0;
-
-        if (desPos == Pos.DL)
-        {
-            dx = DLpos.transform.position.x; dy = DLpos.transform.position.y;
-        }
-        if (desPos == Pos.DR)
-        {
-            dx = DRpos.transform.position.x; dy = DRpos.transform.position.y;
-        }
-        if (desPos == Pos.UL)
-        {
-            dx = ULpos.transform.position.x; dy = ULpos.transform.position.y;
-        }
-        if (desPos == Pos.UR)
-        {
-            dx = URpos.transform.position.x; dy = URpos.transform.position.y;
-        }
-
-        float x = Mathf.Lerp(transform.position.x, dx, PlayerSpeed * Time.deltaTime);
-        float y = Mathf.Lerp(transform.position.y, dy, PlayerSpeed * Time.deltaTime);
-        float z = transform.position.z + 0.0f;
-        transform.position = new Vector3(x, y, z);
     }
 
     // 方向控制
@@ -387,5 +203,189 @@ public class Player : MonoBehaviour
         {
             anim.SetTrigger("IsAtk");
         }
+    }
+
+    // 玩家是否就定位
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Platform")
+        {
+            stay = true;
+        }
+        if (collision.name == "DL")
+        {
+            PosDL = true;
+        }
+        if (collision.name == "UL")
+        {
+            PosUL = true;
+        }
+        if (collision.name == "DR")
+        {
+            PosDR = true;
+        }
+        if (collision.name == "UR")
+        {
+            PosUR = true;
+        }
+        Flip();
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Platform")
+        {
+            stay = false;
+        }
+    }
+
+    // 鍵盤控制
+    private Direction KeyBoardCon()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+            return Direction.UpLeft;
+        if (Input.GetKeyDown(KeyCode.Z))
+            return Direction.DownLeft;
+        if (Input.GetKeyDown(KeyCode.E))
+            return Direction.UpRight;
+        if (Input.GetKeyDown(KeyCode.C))
+            return Direction.DownRight;
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            return Direction.Up;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            return Direction.Down;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            return Direction.Left;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            return Direction.Right;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
+        }
+        return Direction.None;
+    }
+
+    // 滑動控制
+    private Direction GetTouchSwipeDirection()
+    {
+        // 如果有觸碰 (touches陣列有內容)
+        if (EventSystem.current.currentSelectedGameObject == null & Input.touches.Length > 0)
+        {
+            // 觸碰開始（只執行一次）
+            if ((Input.touches[0]).phase == TouchPhase.Began)
+            {
+                // 紀錄觸碰座標
+                startTouchPos = Input.touches[0].position;
+            }
+
+            // 觸碰結束（只執行一次）
+            if (Input.touches[0].phase == TouchPhase.Ended)
+            {
+                // 計算觸碰滑動距離
+                Vector2 delta = startTouchPos - Input.touches[0].position;
+
+                // 左右 or 斜向滑動
+                if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+                {
+                    // 向左
+                    if (delta.x > 0)
+                    {
+                        if (delta.y > -200 && delta.y < 200)
+                        {
+                            Debug.Log("Left");
+                            return Direction.Left;
+                        }
+                        else if (delta.y < -200)
+                        {
+                            Debug.Log("UpL");
+                            return Direction.UpLeft;
+                        }
+                        else if (delta.y > 200)
+                        {
+                            Debug.Log("DownL");
+                            return Direction.DownLeft;
+                        }
+                    }
+                    // 向右
+                    else
+                    {
+                        if (delta.y > -200 && delta.y < 200)
+                        {
+                            return Direction.Right;
+                        }
+                        else if (delta.y < -200)
+                        {
+                            Debug.Log("UpR");
+                            return Direction.UpRight;
+                        }
+                        else if (delta.y > 200)
+                        {
+                            Debug.Log("DownR");
+                            return Direction.DownRight;
+                        }
+                    }
+                }
+                // 上下滑動
+                else
+                {
+                    if (delta.y > 0)
+                    {
+                        Debug.Log("Down");
+                        return Direction.Down;
+                    }
+                    else
+                    {
+                        Debug.Log("Up");
+                        return Direction.Up;
+                    }
+                }
+            }
+        }
+        return Direction.None;
+    }
+
+    // 角色反轉
+    private void Flip()
+    {
+        if (FacingLeft)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+    }
+
+    // 更新玩家位置
+    private void UpdatePos()
+    {
+        // 目標位置 to 座標
+        float dx = 0, dy = 0;
+
+        if (desPos == Pos.DL)
+        {
+            dx = DLpos.transform.position.x; dy = DLpos.transform.position.y;
+        }
+        if (desPos == Pos.DR)
+        {
+            dx = DRpos.transform.position.x; dy = DRpos.transform.position.y;
+        }
+        if (desPos == Pos.UL)
+        {
+            dx = ULpos.transform.position.x; dy = ULpos.transform.position.y;
+        }
+        if (desPos == Pos.UR)
+        {
+            dx = URpos.transform.position.x; dy = URpos.transform.position.y;
+        }
+
+        float x = Mathf.Lerp(transform.position.x, dx, PlayerSpeed * Time.deltaTime);
+        float y = Mathf.Lerp(transform.position.y, dy, PlayerSpeed * Time.deltaTime);
+        float z = transform.position.z + 0.0f;
+        transform.position = new Vector3(x, y, z);
     }
 }
