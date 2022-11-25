@@ -14,7 +14,7 @@ public class Ghost : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (makeGhost)
         {
@@ -29,7 +29,7 @@ public class Ghost : MonoBehaviour
                 currentGhost.transform.localScale = this.transform.localScale;
                 currentGhost.GetComponent<SpriteRenderer>().sprite = currentSprite;
                 ghostDelaySeconds = ghostDelay;
-                Destroy(currentGhost, 0.8f);
+                Destroy(currentGhost, 0.15f);
             }
         }
 
