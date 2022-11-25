@@ -183,13 +183,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    // 攻擊
+    // 角色攻擊動畫
     private void PlayerAttack(Direction AtkDir)
     {
         if (AtkDir == Direction.UpRight)
         {
             anim.SetTrigger("IsAtk");
-            Instantiate(AttackObj, AttackPoint.position, AttackPoint.rotation);
+            //Instantiate(AttackObj, AttackPoint.position, AttackPoint.rotation);
         }
         if (AtkDir == Direction.UpLeft)
         {
@@ -204,6 +204,13 @@ public class Player : MonoBehaviour
             anim.SetTrigger("IsAtk");
         }
     }
+
+    // 攻擊動畫觸發
+    public void ATK()
+    {
+        Instantiate(AttackObj, AttackPoint.position, AttackPoint.rotation);
+    }
+
 
     // 玩家是否就定位
     private void OnTriggerEnter2D(Collider2D collision)
