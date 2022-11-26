@@ -21,15 +21,16 @@ public class Player : MonoBehaviour
     // 攻擊
     public Transform AttackPoint;
     public GameObject AttackObj;
+    public float AttackSpeed = 50;
 
     // 玩家定位點
-    private bool PosUR, PosUL, PosDR, PosDL;
+    public bool PosUR, PosUL, PosDR, PosDL;
 
     // 玩家外觀
     private bool FacingLeft = true;
 
     // 玩家已就定位
-    bool stay = false;
+    public bool stay = false;
 
     // 紀錄觸控一開始的座標（用於後面計算拖曳方向）
     private Vector2 startTouchPos;
