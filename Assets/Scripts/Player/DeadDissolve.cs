@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DeadDissolve : MonoBehaviour
 {
-    public GameObject deadDisslove;
+    public GameObject deadDissolve;
 
     public float alphaSpeed;
 
-    private bool isDisslove;
+    private bool isDissolve;
 
     private SpriteRenderer spriteRenderer;
 
@@ -19,23 +19,23 @@ public class DeadDissolve : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        deadDisslove.SetActive(false);
+        deadDissolve.SetActive(false);
     }
 
     private void Update()
     {
-        if (isDisslove)
+        if (isDissolve)
         {
             alpha -= alphaSpeed * Time.deltaTime;
             spriteRenderer.color = new Color(1, 1, 1, alpha);
 
-            if (alpha <= 0.25f && !deadDisslove.activeSelf)
+            if (alpha <= 0.25f && !deadDissolve.activeSelf)
             {
-                deadDisslove.SetActive(true);
+                deadDissolve.SetActive(true);
             }
             if (alpha <= 0)
             {
-                isDisslove = false;
+                isDissolve = false;
                 gameObject.SetActive(false);
             }
         }
@@ -43,7 +43,7 @@ public class DeadDissolve : MonoBehaviour
 
         void DeadDisslove()
         {
-            isDisslove = true;
+            isDissolve = true;
         }
     }
 

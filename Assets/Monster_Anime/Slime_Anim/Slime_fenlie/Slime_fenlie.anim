@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slime_Idle
+  m_Name: Slime_fenlie
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 58972833db2f6a04ead185ab1290aea4, type: 3}
-    - time: 0.125
-      value: {fileID: 21300000, guid: b3116b29b31e03a48be808e24231040b, type: 3}
-    - time: 0.375
-      value: {fileID: 21300000, guid: 552c6c9ceeb398c47ace1ef22720c917, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: cd4390e3ca378424dbf85919a66cc32d, type: 3}
+      value: {fileID: 21300000, guid: e9d26ffa29e30ce4dae898b9ea87a189, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: de9168e1e15cb7c4aaab0616d02b7047, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: c2f561d846a27b24592ff69cb187c4e8, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 4367516883e5dd34cb08787e68dcf048, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 2901a5a8c9f646743b6130041746a77e, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: fc7caa9f4f0d1f74d91f7358e6c840b9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 58972833db2f6a04ead185ab1290aea4, type: 3}
-    - {fileID: 21300000, guid: b3116b29b31e03a48be808e24231040b, type: 3}
-    - {fileID: 21300000, guid: 552c6c9ceeb398c47ace1ef22720c917, type: 3}
-    - {fileID: 21300000, guid: cd4390e3ca378424dbf85919a66cc32d, type: 3}
+    - {fileID: 21300000, guid: e9d26ffa29e30ce4dae898b9ea87a189, type: 3}
+    - {fileID: 21300000, guid: de9168e1e15cb7c4aaab0616d02b7047, type: 3}
+    - {fileID: 21300000, guid: c2f561d846a27b24592ff69cb187c4e8, type: 3}
+    - {fileID: 21300000, guid: 4367516883e5dd34cb08787e68dcf048, type: 3}
+    - {fileID: 21300000, guid: 2901a5a8c9f646743b6130041746a77e, type: 3}
+    - {fileID: 21300000, guid: fc7caa9f4f0d1f74d91f7358e6c840b9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.625
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -74,11 +80,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.625
-    functionName: DeadDisslove
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
