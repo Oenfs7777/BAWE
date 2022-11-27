@@ -11,6 +11,7 @@ public class Healthbar : MonoBehaviour
     public static int HealthCurrent;
     public static int HealthMax;
     private Image healthBar;
+    
    
 
     // Start is called before the first frame update
@@ -28,4 +29,6 @@ public class Healthbar : MonoBehaviour
         healthBar.fillAmount = (float)HealthCurrent / (float)HealthMax;
         healthText.text = HealthCurrent.ToString() + "/" + HealthMax.ToString();
     }
+   
+    
 }
