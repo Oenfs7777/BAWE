@@ -6,7 +6,8 @@ public class Health : MonoBehaviour
 {
     // Start is called before the first frame update
     public int health;
-    
+
+    private Animator SA;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
             health = 0;
            
             Debug.Log("Dead!");
+
+            SA.SetTrigger("SlimeDead");
         }
         Healthbar.HealthCurrent = health;
     }
@@ -23,6 +26,8 @@ public class Health : MonoBehaviour
     {
         Healthbar.HealthMax = health;
         Healthbar.HealthCurrent = health;
+
+        SA = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
