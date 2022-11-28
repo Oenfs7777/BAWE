@@ -17432,8 +17432,10 @@ MonoBehaviour:
   URpos: {fileID: 156131334}
   ULpos: {fileID: 1241524958}
   AttackPoint: {fileID: 165583709}
-  AttackObj: {fileID: 2391207216865729090, guid: 0104a8d01d4aa4d9bbd982a25ca4fdb5, type: 3}
-  AttackSpeed: 50
+  AtkDLObj: {fileID: 2391207216865729090, guid: 0104a8d01d4aa4d9bbd982a25ca4fdb5, type: 3}
+  AtkDRObj: {fileID: 2391207216865729090, guid: b74d684c86f8b4f82a618a797facfe97, type: 3}
+  AtkULObj: {fileID: 2391207216865729090, guid: 5e4f21e2862b84d948fd9a067ffd4465, type: 3}
+  AtkURObj: {fileID: 2391207216865729090, guid: b01b417d7b1a34c118d1e28fdbdb642e, type: 3}
   PosUR: 0
   PosUL: 0
   PosDR: 0

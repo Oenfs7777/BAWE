@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
 
     // 攻擊
     public Transform AttackPoint;
-    public GameObject AttackObj;
-    public float AttackSpeed = 50;
+    public GameObject AtkDLObj, AtkDRObj, AtkULObj, AtkURObj;
+    //public float AttackSpeed = 50;
 
     // 玩家定位點
     public bool PosUR, PosUL, PosDR, PosDL;
@@ -190,7 +190,6 @@ public class Player : MonoBehaviour
         if (AtkDir == Direction.UpRight)
         {
             anim.SetTrigger("IsAtk");
-            //Instantiate(AttackObj, AttackPoint.position, AttackPoint.rotation);
         }
         if (AtkDir == Direction.UpLeft)
         {
@@ -209,7 +208,22 @@ public class Player : MonoBehaviour
     // 攻擊動畫觸發
     public void ATK()
     {
-        Instantiate(AttackObj, AttackPoint.position, AttackPoint.rotation);
+        if (desPos == Pos.DL)
+        {
+            Instantiate(AtkDLObj, AttackPoint.position, AttackPoint.rotation);
+        }
+        if (desPos == Pos.DR)
+        {
+            Instantiate(AtkDRObj, AttackPoint.position, AttackPoint.rotation);
+        }
+        if (desPos == Pos.UL)
+        {
+            Instantiate(AtkULObj, AttackPoint.position, AttackPoint.rotation);
+        }
+        if (desPos == Pos.UR)
+        {
+            Instantiate(AtkURObj, AttackPoint.position, AttackPoint.rotation);
+        }
     }
 
 
