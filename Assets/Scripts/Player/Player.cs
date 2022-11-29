@@ -13,12 +13,13 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     // 玩家身體
-    private CapsuleCollider2D myBody;
+    private CircleCollider2D myBody;
 
     // 玩家可待的四個角落
     public GameObject DLpos, DRpos, URpos, ULpos;
 
     // 攻擊
+    public bool AtkBool = true;
     public Transform AttackPoint;
     public GameObject AtkDLObj, AtkDRObj, AtkULObj, AtkURObj;
     //public float AttackSpeed = 50;
@@ -45,13 +46,16 @@ public class Player : MonoBehaviour
     private void Start()
     {
         // 獲取受傷主體
-        myBody = GetComponent<CapsuleCollider2D>();
+        myBody = GetComponent<CircleCollider2D>();
         // 獲得動畫控制器
         anim = GetComponent<Animator>();
 
         Debug.Log("如需用滑鼠滑動控制，請： Window > General > Divice Simulator");
         Debug.Log("將上排工具列第二項（預設應該是 iPad Air ）改為 Google Pixel 2");
         Debug.Log("工具列第五項可讓螢幕旋轉九十度，接下來即可直接用滑鼠操作");
+
+        anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
+
     }
 
     // Update is called once per frame
@@ -226,8 +230,8 @@ public class Player : MonoBehaviour
         }
     }
 
-
     // 玩家是否就定位
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Platform")
@@ -252,10 +256,18 @@ public class Player : MonoBehaviour
         }
         Flip();
     }
+
+
+    public void StayAttack()
+    {
+        AtkBool = true;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Platform")
         {
+            AtkBool = false;
             stay = false;
         }
     }
@@ -286,10 +298,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             return Direction.Right;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
         }
         return Direction.None;
     }
