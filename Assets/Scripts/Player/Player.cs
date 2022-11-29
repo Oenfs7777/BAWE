@@ -257,7 +257,6 @@ public class Player : MonoBehaviour
         Flip();
     }
 
-
     public void StayAttack()
     {
         AtkBool = true;
