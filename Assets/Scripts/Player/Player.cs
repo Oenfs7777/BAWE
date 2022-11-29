@@ -231,9 +231,9 @@ public class Player : MonoBehaviour
     }
 
     // 玩家是否就定位
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("boom");
         if (collision.tag == "Platform")
         {
             stay = true;
@@ -255,6 +255,7 @@ public class Player : MonoBehaviour
             PosUR = true;
         }
         Flip();
+        Debug.Log("kaa");
     }
 
     public void StayAttack()
@@ -386,6 +387,7 @@ public class Player : MonoBehaviour
         if (FacingLeft)
         {
             transform.Rotate(0, 180, 0);
+            Debug.Log("flip");
         }
     }
 
