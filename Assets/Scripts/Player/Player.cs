@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
             if (desPos == Pos.DR)
             {
                 PlayerAttack(Direction.UpLeft);
-                FacingLeft = true;
+                FacingLeft = false;
             }
         }
         if (SwipeTo == Direction.UpRight)
@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
             if (desPos == Pos.UR)
             {
                 PlayerAttack(Direction.DownLeft);
-                FacingLeft = true;
+                FacingLeft = false;
             }
         }
         if (SwipeTo == Direction.DownRight)
