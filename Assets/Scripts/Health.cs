@@ -43,9 +43,9 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Attack")
+        if (collision.tag == "PsycalAttack")
         {
-            TakeDamage(5);
+            TakeDamage(10);
             Debug.Log("HIT!!");
         }
     }

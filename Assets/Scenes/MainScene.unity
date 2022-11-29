@@ -326,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165583708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: -1.38, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -497,43 +497,11 @@ Transform:
   m_Father: {fileID: 1799772780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &480804157 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7104601079947672277, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
-  m_PrefabInstance: {fileID: 7104601079618947048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &480804159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7104601079947672279, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
   m_PrefabInstance: {fileID: 7104601079618947048}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &480804163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480804157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eee298a09845f74cb3a7bd990e114c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
---- !u!114 &480804168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480804157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff0d9bd608a90e4b90faa552db962ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadDissolve: {fileID: 1574069889}
-  alphaSpeed: 5
 --- !u!1 &514503546
 GameObject:
   m_ObjectHideFlags: 0
@@ -22901,6 +22869,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 543456783}
     m_Modifications:
+    - target: {fileID: 3441969201779877202, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
+      propertyPath: deadDissolve
+      value: 
+      objectReference: {fileID: 1574069889}
+    - target: {fileID: 7104601079947672232, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104601079947672232, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7104601079947672277, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -22949,5 +22929,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}

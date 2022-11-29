@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6669966349092987074}
   m_Layer: 0
   m_Name: AttackDLObj_Prefab
-  m_TagString: Attack
+  m_TagString: PsycalAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
