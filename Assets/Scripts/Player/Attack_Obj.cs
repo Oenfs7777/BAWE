@@ -29,6 +29,10 @@ public class Attack_Obj : MonoBehaviour
         {
             rb.velocity = new Vector3(-2, 1, 0) * speed;
         }
-
+        Invoke("DestoryGameObj", 3);
+    }
+    void DestoryGameObj()
+    {
+        Destroy(gameObject);
     }
 }
