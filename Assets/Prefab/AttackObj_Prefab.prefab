@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2391207216865729089}
   - component: {fileID: 5247303594195716736}
   - component: {fileID: 2159221232503197813}
-  - component: {fileID: 1927602953964004618}
+  - component: {fileID: -3545480691078846785}
   m_Layer: 0
-  m_Name: AttackULObj_Prefab
+  m_Name: AttackObj_Prefab
   m_TagString: PsycalAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1927602953964004618
+--- !u!114 &-3545480691078846785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,8 +133,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2391207216865729090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ede152d63ad74dd3a0ba16258a3e4bf, type: 3}
+  m_Script: {fileID: 11500000, guid: a1c219df22a8b4c65be2e208acb59cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSpeed: 10
+  player: {fileID: 0}
+  speed: 10
   rb: {fileID: 5247303594195716736}

@@ -21,11 +21,12 @@ public class Player : MonoBehaviour
     // 攻擊
     public bool AtkBool = true;
     public Transform AttackPoint;
-    public GameObject AtkDLObj, AtkDRObj, AtkULObj, AtkURObj;
-    //public float AttackSpeed = 50;
+    public Attack_Obj AtkObj;
+    public float AttackSpeed = 50;
 
     // 玩家定位點
     public bool PosUR, PosUL, PosDR, PosDL;
+    public Pos currentPos;
 
     // 玩家外觀
     private bool FacingLeft = true;
@@ -76,13 +77,6 @@ public class Player : MonoBehaviour
         {
             SwipeDir(dir);
         }
-        if (stay == false)
-        {
-            PosDL = false;
-            PosDR = false;
-            PosUL = false;
-            PosUR = false;
-        }
         UpdatePos();
     }
 
@@ -98,7 +92,7 @@ public class Player : MonoBehaviour
             {
                 desPos = Pos.UR;
             }
-            if (PosDL || PosDR)
+            if (currentPos == Pos.DL || currentPos == Pos.DR)
             {
                 anim.SetTrigger("IsJump");
                 anim.ResetTrigger("IsFall");
@@ -114,7 +108,7 @@ public class Player : MonoBehaviour
             {
                 desPos = Pos.DR;
             }
-            if (PosUL || PosUR)
+            if (currentPos == Pos.UL || currentPos == Pos.UR)
             {
                 anim.SetTrigger("IsFall");
                 anim.ResetTrigger("IsJump");
@@ -130,7 +124,7 @@ public class Player : MonoBehaviour
             {
                 desPos = Pos.UL;
             }
-            if (PosDR || PosUR)
+            if (currentPos == Pos.DR || currentPos == Pos.UR)
             {
                 anim.SetTrigger("IsSprint");
                 ghost.makeGhost = true;
@@ -145,7 +139,7 @@ public class Player : MonoBehaviour
             {
                 desPos = Pos.UR;
             }
-            if (PosDL || PosUL)
+            if (currentPos == Pos.DL || currentPos == Pos.UL)
             {
                 anim.SetTrigger("IsSprint");
                 ghost.makeGhost = true;
@@ -212,55 +206,36 @@ public class Player : MonoBehaviour
     // 攻擊動畫觸發
     public void ATK()
     {
-        if (desPos == Pos.DL)
-        {
-            Instantiate(AtkDLObj, AttackPoint.position, AttackPoint.rotation);
-        }
-        if (desPos == Pos.DR)
-        {
-            Instantiate(AtkDRObj, AttackPoint.position, AttackPoint.rotation);
-        }
-        if (desPos == Pos.UL)
-        {
-            Instantiate(AtkULObj, AttackPoint.position, AttackPoint.rotation);
-        }
-        if (desPos == Pos.UR)
-        {
-            Instantiate(AtkURObj, AttackPoint.position, AttackPoint.rotation);
-        }
+        Attack_Obj atk = Instantiate<Attack_Obj>(AtkObj, AttackPoint.position, AttackPoint.rotation);
+        atk.player = this;
+        atk.speed = AttackSpeed;
     }
 
     // 玩家是否就定位
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("boom");
         if (collision.tag == "Platform")
         {
             stay = true;
+            if (collision.name == "DL")
+            {
+                currentPos = Pos.DL;
+            }
+            if (collision.name == "UL")
+            {
+                currentPos = Pos.UL;
+            }
+            if (collision.name == "DR")
+            {
+                currentPos = Pos.DR;
+            }
+            if (collision.name == "UR")
+            {
+                currentPos = Pos.UR;
+            }
+            Flip();
         }
-        if (collision.name == "DL")
-        {
-            PosDL = true;
-        }
-        if (collision.name == "UL")
-        {
-            PosUL = true;
-        }
-        if (collision.name == "DR")
-        {
-            PosDR = true;
-        }
-        if (collision.name == "UR")
-        {
-            PosUR = true;
-        }
-        Flip();
-        Debug.Log("kaa");
-    }
-
-    public void StayAttack()
-    {
-        AtkBool = true;
+        Debug.Log("collision: " + collision.name);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
