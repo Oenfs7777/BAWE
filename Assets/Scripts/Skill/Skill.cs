@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float cdTime;
+    public float activeTime;
+    public void UseSkill()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

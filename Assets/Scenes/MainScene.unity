@@ -830,6 +830,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 559650331}
+        m_TargetAssemblyTypeName: Skill, Assembly-CSharp
+        m_MethodName: useSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &515854409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5994,6 +6006,7 @@ GameObject:
   - component: {fileID: 559650327}
   - component: {fileID: 559650326}
   - component: {fileID: 559650330}
+  - component: {fileID: 559650331}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6101,6 +6114,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3442033a65ce24ee7a60f640706d3a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &559650331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559650325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868a345e00acb4ba0ab0a65385574b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cdTime: 0
+  activeTime: 0
 --- !u!1 &566931609
 GameObject:
   m_ObjectHideFlags: 0
@@ -11860,6 +11887,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 559650325}
+        m_TargetAssemblyTypeName: SpellCooldown, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1047181654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17589,6 +17628,7 @@ GameObject:
   - component: {fileID: 1721532351}
   - component: {fileID: 1721532352}
   - component: {fileID: 1721532353}
+  - component: {fileID: 1721532354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -17779,7 +17819,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721532344}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a633148d5aa5dc4da76460cfc7c34dd, type: 3}
   m_Name: 
@@ -17787,6 +17827,18 @@ MonoBehaviour:
   ghostDelay: 0.02
   ghost: {fileID: 7000249623338775449, guid: 706f8ce0122283f41934babb4c9230d3, type: 3}
   makeGhost: 0
+--- !u!114 &1721532354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721532344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07741cbb987246a1b5cd86074004ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1766703657
 GameObject:
   m_ObjectHideFlags: 0
@@ -18269,6 +18321,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 559650325}
+        m_TargetAssemblyTypeName: SpellCooldown, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
