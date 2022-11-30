@@ -73,7 +73,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: StayAttack()
+    functionName: StayAttack
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 58f6e32e0378440cabe23345303f4c19, type: 3}
     floatParameter: 0
