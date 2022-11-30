@@ -15,8 +15,7 @@ public class SkillTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ShieldSkill shieldSkill = new ShieldSkill();
-            shieldSkill.ShieldActive();
+
         }
     }
 }
