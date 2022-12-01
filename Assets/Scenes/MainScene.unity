@@ -22509,6 +22509,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2211151982072797112, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2211151982072797118, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: AttackSpeed
       value: 20
@@ -22617,7 +22621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7104601079947672232, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7104601079947672277, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
       propertyPath: m_Name
