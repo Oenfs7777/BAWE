@@ -39,11 +39,11 @@ public class DeadDissolve : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-    }    
-
-        void DeadDisslove()
-        {
-            isDissolve = true;
-        }
     }
+
+    void DeadDisslove()
+    {
+        isDissolve = true;
+    }
+}
 
