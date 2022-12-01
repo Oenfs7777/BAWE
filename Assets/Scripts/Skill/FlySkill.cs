@@ -6,6 +6,7 @@ public class FlySkill : Skill
 {
     public void FlyActive()
     {
+        ActTime();
         Debug.Log("fly used");
     }
 }

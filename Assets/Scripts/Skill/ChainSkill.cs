@@ -6,6 +6,7 @@ public class ChainSkill : Skill
 {
     public void ChainActive()
     {
+        ActTime();
         Debug.Log("chain used");
     }
 }

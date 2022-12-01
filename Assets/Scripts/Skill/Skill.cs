@@ -7,6 +7,11 @@ public class Skill : MonoBehaviour
     public float cdTime;
     public float activeTime;
 
+    public void ActTime()
+    {
+
+    }
+
     public void UseSkill(int a)
     {
         if (a == 1)

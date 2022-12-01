@@ -6,6 +6,7 @@ public class ThunderSkill : Skill
 {
     public void ThunderActive()
     {
+        ActTime();
         Debug.Log("thunder used");
     }
 }

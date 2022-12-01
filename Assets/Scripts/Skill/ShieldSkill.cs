@@ -6,6 +6,7 @@ public class ShieldSkill : Skill
 {
     public void ShieldActive()
     {
+        ActTime();
         Debug.Log("shield used");
     }
 }

@@ -22509,6 +22509,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2211151982072797118, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: AttackSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2211151982286281198, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -22556,6 +22560,26 @@ PrefabInstance:
     - target: {fileID: 2211151982286281199, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: m_Name
       value: PlayerObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211151982756590424, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211151982756590424, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211151982756590424, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211151982756590424, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211151982756590424, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}

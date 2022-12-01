@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
         Debug.Log("工具列第五項可讓螢幕旋轉九十度，接下來即可直接用滑鼠操作");
 
         anim.SetBool("IsBattleStart", true); // 進入戰鬥待機
-
     }
 
     // Update is called once per frame
@@ -206,6 +205,26 @@ public class Player : MonoBehaviour
     // 攻擊動畫觸發
     public void ATK()
     {
+        if (currentPos == Pos.UL)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 180, 220);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.DL)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 180, 140);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.UR)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 220);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.DR)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 140);
+            AttackPoint.rotation = rotation;
+        }
         Attack_Obj atk = Instantiate<Attack_Obj>(AtkObj, AttackPoint.position, AttackPoint.rotation);
         atk.player = this;
         atk.speed = AttackSpeed;
@@ -237,7 +256,6 @@ public class Player : MonoBehaviour
         }
         Debug.Log("collision: " + collision.name);
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Platform")

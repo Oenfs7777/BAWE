@@ -6,6 +6,7 @@ public class AtkBuffSkill : Skill
 {
     public void AtkBuffActive()
     {
+        ActTime();
         Debug.Log("aktBuff used");
     }
 }
