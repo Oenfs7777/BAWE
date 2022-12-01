@@ -6,6 +6,6 @@ public class HealSkill : Skill
 {
     public void HealActive()
     {
-
+        Debug.Log("heal used");
     }
 }

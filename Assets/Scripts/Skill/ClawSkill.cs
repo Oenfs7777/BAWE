@@ -6,6 +6,6 @@ public class ClawSkill : Skill
 {
     public void ClawActive()
     {
-
+        Debug.Log("claw used");
     }
 }
