@@ -5922,6 +5922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3442033a65ce24ee7a60f640706d3a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 2211151982633543686}
+  Player_Anim: {fileID: 2211151982633543691}
 --- !u!114 &559650331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11416,7 +11418,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 559650330}
         m_TargetAssemblyTypeName: Skill_Button, Assembly-CSharp
-        m_MethodName: skill
+        m_MethodName: Skill1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22604,6 +22606,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07741cbb987246a1b5cd86074004ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2211151982633543691 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2211151982072797125, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+  m_PrefabInstance: {fileID: 2211151982633543685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2211151982633543697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2211151982633543686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076498eb6b3fe774086fa54eabfadd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shield: {fileID: 873639694155902607, guid: 8cce7d1fbd879eb4f923603fdc184781, type: 3}
+  Player: {fileID: 2211151982633543686}
 --- !u!1001 &7104601079618947048
 PrefabInstance:
   m_ObjectHideFlags: 0
