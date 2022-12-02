@@ -4,48 +4,30 @@ using UnityEngine;
 
 public class PlayerSkillTest : MonoBehaviour
 {
-    int a = 0;
+    int skill1, skill2, skill3;
     Skill skill = new Skill();
     // Start is called before the first frame update
     void Start()
     {
-
+        skill1 = PlayerPrefs.GetInt("Skill1");
+        skill2 = PlayerPrefs.GetInt("Skill2");
+        skill3 = PlayerPrefs.GetInt("Skill3");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            a = 1;
+            skill.UseSkill(skill1);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            a = 2;
+            skill.UseSkill(skill2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            a = 3;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            a = 4;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            a = 5;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            a = 6;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            a = 7;
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            skill.UseSkill(a);
+            skill.UseSkill(skill3);
         }
     }
 }
