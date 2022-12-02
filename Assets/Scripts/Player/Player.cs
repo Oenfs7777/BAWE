@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public bool AtkBool = true;
     public Transform AttackPoint;
     public Attack_Obj AtkObj;
+    public Attack_Obj UpAtkObj;
+    public Attack_Obj ChianObj;
     public float AttackSpeed = 50;
 
     // 玩家定位點
@@ -226,6 +228,60 @@ public class Player : MonoBehaviour
             AttackPoint.rotation = rotation;
         }
         Attack_Obj atk = Instantiate<Attack_Obj>(AtkObj, AttackPoint.position, AttackPoint.rotation);
+        atk.player = this;
+        atk.speed = AttackSpeed;
+    }
+
+    public void UPATK()
+    {
+        if (currentPos == Pos.UL)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 180, 220);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.DL)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 180, 140);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.UR)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 220);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.DR)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 140);
+            AttackPoint.rotation = rotation;
+        }
+        Attack_Obj atk = Instantiate<Attack_Obj>(UpAtkObj, AttackPoint.position, AttackPoint.rotation);
+        atk.player = this;
+        atk.speed = AttackSpeed;
+    }
+
+    public void ChianATK()
+    {
+        if (currentPos == Pos.UL)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 180, 220);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.DL)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 180, 140);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.UR)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 220);
+            AttackPoint.rotation = rotation;
+        }
+        else if (currentPos == Pos.DR)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, 140);
+            AttackPoint.rotation = rotation;
+        }
+        Attack_Obj atk = Instantiate<Attack_Obj>(ChianObj, AttackPoint.position, AttackPoint.rotation);
         atk.player = this;
         atk.speed = AttackSpeed;
     }

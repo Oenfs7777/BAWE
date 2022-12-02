@@ -223,7 +223,9 @@ MonoBehaviour:
   AtkBool: 1
   AttackPoint: {fileID: 2211151982756590424}
   AtkObj: {fileID: -3545480691078846785, guid: 0104a8d01d4aa4d9bbd982a25ca4fdb5, type: 3}
-  AttackSpeed: 25
+  UpAtkObj: {fileID: 6431762820063301971, guid: 7694f33bad8ffab4fb97d33688dac379, type: 3}
+  ChianObj: {fileID: 1683424996288897369, guid: 1b7e9e0f09fd5284e9ffa51d3831727c, type: 3}
+  AttackSpeed: 20
   PosUR: 0
   PosUL: 0
   PosDR: 0

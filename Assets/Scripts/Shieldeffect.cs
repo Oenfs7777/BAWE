@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shieldeffect : MonoBehaviour
 {
+    public GameObject Shield;
+    public GameObject ChianEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,7 @@ public class Shieldeffect : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Destroy(gameObject, 3f); 
+        Destroy(Shield, 3f);
+        Destroy(ChianEffect, 3f);
     }
 }

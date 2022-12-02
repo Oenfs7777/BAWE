@@ -7,44 +7,41 @@ public class Skill_Button : MonoBehaviour
     public GameObject Player;
     public Animator Player_Anim;
 
-    private void Start()
-    {
-
-    }
 
     public void Skill1() //Å@¬Þ
     {
         Player_Anim.SetTrigger("IsShield");
+        Debug.Log("Shield");
     }
 
     public void Skill2() // ÂêÃì
     {
         Player_Anim.SetTrigger("IsChian");
+        Debug.Log("Chian");
     }
 
     public void Skill3() //«ì´_
     {
         Player_Anim.SetTrigger("IsCure");
+        Debug.Log("Cure");
     }
 
     public void Skill4() //§ðÀ»buff
     {
         Player_Anim.SetTrigger("IsAtkBuff");
+        Player_Anim.SetBool("IsAtkUp", true);
+        Debug.Log("AtkUp");
     }
 
     public void BSkill1() //°{¹q
     {
         Player_Anim.SetTrigger("IsThunder");
+        Debug.Log("Thunder");
     }
 
     public void BSkil2() //Ã~¤ö
     {
         Player_Anim.SetTrigger("IsBeastHit");
-    }
-
-
-    public void skill()
-    {
-        Debug.Log("test");
+        Debug.Log("BeastHit");
     }
 }
