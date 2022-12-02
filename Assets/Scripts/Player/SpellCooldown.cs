@@ -16,8 +16,10 @@ public class SpellCooldown : MonoBehaviour
     public float cooldownTime = 10.0f;
     private float cooldownTimer = 0.0f;
     public KeyCode spell1;
+    public Button skillbtn;
     void Start()
     {
+        skillbtn.onClick.AddListener(UseSpell);
         textCooldown.gameObject.SetActive(false);
         imageCooldown.fillAmount = 0.0f;
     }
@@ -43,21 +45,25 @@ public class SpellCooldown : MonoBehaviour
             isCooldown = false;
             textCooldown.gameObject.SetActive(false);
             imageCooldown.fillAmount = 0.0f;
+            skillbtn.interactable = true;
         }
         else
         {
             textCooldown.text = Mathf.RoundToInt(cooldownTimer).ToString();
             imageCooldown.fillAmount = cooldownTimer / cooldownTime;
+            skillbtn.interactable = false;
         }
     }
     public void UseSpell()
     {
         if(isCooldown)
         {
+           
             //return false;
         }
         else
         {
+            
             isCooldown = true;
             textCooldown.gameObject.SetActive(true);
             cooldownTimer = cooldownTime;

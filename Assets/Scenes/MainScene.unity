@@ -618,8 +618,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageCooldown: {fileID: 1766703659}
   textCooldown: {fileID: 1682557439}
-  cooldownTime: 8
-  spell1: 111
+  cooldownTime: 10
+  spell1: 0
+  skillbtn: {fileID: 515854408}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -11505,7 +11506,8 @@ MonoBehaviour:
   imageCooldown: {fileID: 1200578073}
   textCooldown: {fileID: 1308247861}
   cooldownTime: 10
-  spell1: 108
+  spell1: 0
+  skillbtn: {fileID: 1047181653}
 --- !u!1 &1200578071
 GameObject:
   m_ObjectHideFlags: 0
@@ -17606,8 +17608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageCooldown: {fileID: 1905227255}
   textCooldown: {fileID: 900851783}
-  cooldownTime: 30
+  cooldownTime: 10
   spell1: 0
+  skillbtn: {fileID: 1933969795}
 --- !u!1 &1992171805
 GameObject:
   m_ObjectHideFlags: 0
