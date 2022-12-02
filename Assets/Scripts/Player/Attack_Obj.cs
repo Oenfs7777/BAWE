@@ -6,6 +6,10 @@ public class Attack_Obj : MonoBehaviour
     // 參考 Player
     public Player player;
 
+    public int damage = 10;
+
+    public GameObject hitEffect;
+
     // 攻擊速度
     public float speed = 10;
     public Rigidbody2D rb;
@@ -33,6 +37,23 @@ public class Attack_Obj : MonoBehaviour
     }
     void DestoryGameObj()
     {
+        Destroy(gameObject);
+    }
+
+    void DestoryHit()
+    {
+        Destroy(hitEffect);
+    }
+
+    private void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        Health slime =  hitInfo.GetComponent<Health>();
+        if(slime != null && hitInfo.tag == "Monster")
+        {
+            slime.TakeDamage(damage);
+        }
+        Instantiate(hitEffect, slime.transform.position, hitEffect.transform.rotation);
+
         Destroy(gameObject);
     }
 }

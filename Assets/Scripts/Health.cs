@@ -41,6 +41,7 @@ public class Health : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "PsycalAttack")
@@ -49,4 +50,5 @@ public class Health : MonoBehaviour
             Debug.Log("HIT!!");
         }
     }
+    */
 }
