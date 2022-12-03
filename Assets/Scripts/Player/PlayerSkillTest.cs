@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerSkillTest : MonoBehaviour
 {
-    int skill1, skill2, skill3;
+    int useSkill1, useSkill2, useSkill3;
     Skill skill = new Skill();
     // Start is called before the first frame update
     void Start()
     {
-        skill1 = PlayerPrefs.GetInt("Skill1");
-        skill2 = PlayerPrefs.GetInt("Skill2");
-        skill3 = PlayerPrefs.GetInt("Skill3");
+        useSkill1 = PlayerPrefs.GetInt("SkillSlot_1");
+        useSkill2 = PlayerPrefs.GetInt("SkillSlot_2");
+        useSkill3 = PlayerPrefs.GetInt("SkillSlot_3");
     }
 
     // Update is called once per frame
@@ -19,15 +19,15 @@ public class PlayerSkillTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            skill.UseSkill(skill1);
+            skill.UseSkill(useSkill1);
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            skill.UseSkill(skill2);
+            skill.UseSkill(useSkill2);
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            skill.UseSkill(skill3);
+            skill.UseSkill(useSkill3);
         }
     }
 }
