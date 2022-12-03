@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSkillTest : MonoBehaviour
 {
-    int useSkill1, useSkill2, useSkill3;
+    public int useSkill1, useSkill2, useSkill3;
     public GameObject player;
     public Animator animator;
     Skill skill = new Skill();

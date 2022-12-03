@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SkillSelectTest : MonoBehaviour
 {
-    public int skill1, skill2, skill3, skill4, skill5, skill6;
+    public int
+    skill1 = 0, skill2 = 0, skill3 = 0, skill4 = 0, skill5 = 0, skill6 = 0;
     // Start is called before the first frame update
     void Start()
     {
-
+        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame
