@@ -24,4 +24,23 @@ public class Slime : MonoBehaviour
     {
         Instantiate(bullet, transform.position, Quaternion.identity);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name == "chian(Clone)")
+        {
+            TimeStop();
+            Invoke("TimeCount",2f);
+        }
+    }
+
+    public void TimeStop()
+    {
+        Slime_anim.speed = 0;
+    }
+
+    public void TimeCount()
+    {
+        Slime_anim.speed = 1;
+    }
 }

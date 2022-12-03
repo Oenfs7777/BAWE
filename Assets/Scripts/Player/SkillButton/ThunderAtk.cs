@@ -21,7 +21,7 @@ public class ThunderAtk : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Health slime = hitInfo.GetComponent<Health>();
+        SlimeHealth slime = hitInfo.GetComponent<SlimeHealth>();
         if (slime != null && hitInfo.tag == "Monster")
         {
             slime.TakeDamage(damage);

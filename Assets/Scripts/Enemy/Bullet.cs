@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D RB;
     public Transform Target;
     public float speed;
+    public int damage = 10;
 
     private float MaxLifetime = 5.0f;
     private float lifeTime;
@@ -30,8 +31,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag== "Player")
+        PlayerHealth player = collision.GetComponent<PlayerHealth>();
+        if (collision.tag== "Player")
         {
+            player.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

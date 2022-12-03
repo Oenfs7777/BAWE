@@ -6,6 +6,8 @@ public class Skill_Button : MonoBehaviour
 {
     public GameObject Player;
     public Animator Player_Anim;
+    public float ShotTime;
+    public float ShotRate = 5f;
 
 
     public void Skill1() //Å@¬Þ
@@ -29,7 +31,8 @@ public class Skill_Button : MonoBehaviour
     public void Skill4() //§ðÀ»buff
     {
         Player_Anim.SetTrigger("IsAtkBuff");
-        Player_Anim.SetBool("IsAtkUp", true);
+        AtkUp();
+        Invoke("AtkUpStop", 10f);
         Debug.Log("AtkUp");
     }
 
@@ -43,5 +46,15 @@ public class Skill_Button : MonoBehaviour
     {
         Player_Anim.SetTrigger("IsBeastHit");
         Debug.Log("BeastHit");
+    }
+
+    public void AtkUpStop()
+    {
+        Player_Anim.SetBool("IsAtkUp", false);
+    }
+
+    public void AtkUp()
+    {
+        Player_Anim.SetBool("IsAtkUp", true);
     }
 }

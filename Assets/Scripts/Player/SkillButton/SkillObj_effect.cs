@@ -14,8 +14,8 @@ public class SkillObj_effect : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Destroy(GameObject.Find("Shield(Clone)"), 3f);
-        Destroy(GameObject.Find("Chian_Effect(Clone)"),3f);
+        Destroy(GameObject.Find("Shield(Clone)"), 10f);
+        Destroy(GameObject.Find("Chian_Effect(Clone)"),2f);
         TcallEffect();
     }
 
