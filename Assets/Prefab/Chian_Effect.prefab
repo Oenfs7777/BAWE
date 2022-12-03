@@ -99,3 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shield: {fileID: 873639694155902607, guid: 8cce7d1fbd879eb4f923603fdc184781, type: 3}
   ChianEffect: {fileID: 2094628055684011465}
+  Tcall: {fileID: 8567054903844520472, guid: 6c594f3da82e9244a9141cbccceefbf2, type: 3}
+  CallSpeed: 0.02

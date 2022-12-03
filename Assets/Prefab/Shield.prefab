@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: a0be88559b935e344889337549f13d17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edbff613e46bb4418962dae5858af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shield: {fileID: 873639694155902607}
-  ChianEffect: {fileID: 2094628055684011465, guid: a0b6bea21b459cc4f88212f6132a9ff3, type: 3}
+  Tcall: {fileID: 8567054903844520472, guid: 6c594f3da82e9244a9141cbccceefbf2, type: 3}
+  CallSpeed: 0.02
