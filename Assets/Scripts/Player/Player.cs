@@ -355,7 +355,7 @@ public class Player : MonoBehaviour
     private Direction GetTouchSwipeDirection()
     {
         // 如果有觸碰 (touches陣列有內容)
-        if (EventSystem.current.currentSelectedGameObject == null & Input.touches.Length > 0)
+        if (Input.touches.Length > 0)
         {
             // 觸碰開始（只執行一次）
             if ((Input.touches[0]).phase == TouchPhase.Began)
@@ -414,14 +414,14 @@ public class Player : MonoBehaviour
                 // 上下滑動
                 else
                 {
-                    if (delta.y > 0)
+                    if (delta.y > 200)
                     {
                         Debug.Log("Down");
                         return Direction.Down;
                     }
-                    else
+                    else if (delta.y < -200)
                     {
-                        Debug.Log("Up");
+                        Debug.Log(delta.y);
                         return Direction.Up;
                     }
                 }
