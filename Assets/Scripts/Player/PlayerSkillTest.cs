@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerSkillTest : MonoBehaviour
 {
     int useSkill1, useSkill2, useSkill3;
+    public GameObject player;
+    public Animator animator;
     Skill skill = new Skill();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +22,67 @@ public class PlayerSkillTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            skill.UseSkill(useSkill1);
+            UseSkill(useSkill1);
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            skill.UseSkill(useSkill2);
+            UseSkill(useSkill2);
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            skill.UseSkill(useSkill3);
+            UseSkill(useSkill3);
+        }
+    }
+    void UseSkill(int a)
+    {
+        if (a == 1)
+        {
+            ShieldSkill shieldSkill = new ShieldSkill();
+            shieldSkill.Player = player;
+            shieldSkill.Player_Anim = animator;
+            shieldSkill.ShieldActive();
+        }
+        else if (a == 2)
+        {
+            ChainSkill chainSkill = new ChainSkill();
+            chainSkill.Player = player;
+            chainSkill.Player_Anim = animator;
+            chainSkill.ChainActive();
+        }
+        else if (a == 3)
+        {
+            HealSkill healSkill = new HealSkill();
+            healSkill.Player = player;
+            healSkill.Player_Anim = animator;
+            healSkill.HealActive();
+        }
+        else if (a == 4)
+        {
+            AtkBuffSkill atkBuffSkill = new AtkBuffSkill();
+            atkBuffSkill.Player = player;
+            atkBuffSkill.Player_Anim = animator;
+            atkBuffSkill.AtkBuffActive();
+        }
+        else if (a == 5)
+        {
+            FlySkill flySkill = new FlySkill();
+            flySkill.Player = player;
+            flySkill.Player_Anim = animator;
+            flySkill.FlyActive();
+        }
+        else if (a == 6)
+        {
+            ThunderSkill thunderSkill = new ThunderSkill();
+            thunderSkill.Player = player;
+            thunderSkill.Player_Anim = animator;
+            thunderSkill.ThunderActive();
+        }
+        else if (a == 7)
+        {
+            ClawSkill clawSkill = new ClawSkill();
+            clawSkill.Player = player;
+            clawSkill.Player_Anim = animator;
+            clawSkill.ClawActive();
         }
     }
 }

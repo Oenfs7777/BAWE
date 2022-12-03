@@ -7,6 +7,7 @@ public class HealSkill : Skill
     public void HealActive()
     {
         ActTime();
+        Player_Anim.SetTrigger("IsCure");
         Debug.Log("heal used");
     }
 }

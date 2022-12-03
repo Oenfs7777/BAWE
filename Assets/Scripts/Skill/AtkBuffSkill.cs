@@ -7,6 +7,7 @@ public class AtkBuffSkill : Skill
     public void AtkBuffActive()
     {
         ActTime();
+        Player_Anim.SetTrigger("IsCure");
         Debug.Log("aktBuff used");
     }
 }
