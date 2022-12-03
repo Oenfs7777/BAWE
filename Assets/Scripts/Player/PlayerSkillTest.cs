@@ -7,12 +7,12 @@ public class PlayerSkillTest : MonoBehaviour
     public int useSkill1, useSkill2, useSkill3;
     public GameObject player;
     public Animator animator;
-    // Skill skill = new Skill();
+    Skill skill = new Skill();
 
     // Start is called before the first frame update
     void Start()
     {
-        Skill skill = player.AddComponent<Skill>();
+        // Skill skill = player.AddComponent<Skill>();
         useSkill1 = PlayerPrefs.GetInt("SkillSlot_1");
         useSkill2 = PlayerPrefs.GetInt("SkillSlot_2");
         useSkill3 = PlayerPrefs.GetInt("SkillSlot_3");
