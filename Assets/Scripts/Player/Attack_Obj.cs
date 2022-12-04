@@ -47,13 +47,10 @@ public class Attack_Obj : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        SlimeHealth slime =  hitInfo.GetComponent<SlimeHealth>();
-        if(slime != null && hitInfo.tag == "Monster")
+        if(hitInfo.tag == "Monster")
         {
-            slime.TakeDamage(damage);
+            Instantiate(hitEffect, hitInfo.transform.position, hitEffect.transform.rotation);
         }
-        Instantiate(hitEffect, slime.transform.position, hitEffect.transform.rotation);
-
         Destroy(gameObject);
     }
 }

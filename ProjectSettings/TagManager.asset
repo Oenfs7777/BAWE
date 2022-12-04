@@ -8,6 +8,10 @@ TagManager:
   - Attack
   - Platform
   - PsycalAttack
+  - BuffAtk
+  - Chian
+  - Thunder
+  - BeastHit
   layers:
   - Default
   - TransparentFX

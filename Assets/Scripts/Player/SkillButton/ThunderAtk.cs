@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ThunderAtk : MonoBehaviour
 {
-    public int damage = 10;
     public GameObject hitEffect;
 
     // Start is called before the first frame update
@@ -21,13 +20,10 @@ public class ThunderAtk : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        SlimeHealth slime = hitInfo.GetComponent<SlimeHealth>();
-        if (slime != null && hitInfo.tag == "Monster")
+        if (hitInfo.tag == "Monster")
         {
-            slime.TakeDamage(damage);
+            Instantiate(hitEffect, hitInfo.transform.position, hitEffect.transform.rotation);
         }
-        Instantiate(hitEffect, slime.transform.position, hitEffect.transform.rotation);
-
         Destroy(gameObject, 0.3f);
     }
 }

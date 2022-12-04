@@ -32,7 +32,7 @@ public class SlimeHealth : MonoBehaviour
         SA = gameObject.GetComponent<Animator>();
     }
 
-    /*
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "PsycalAttack")
@@ -40,6 +40,21 @@ public class SlimeHealth : MonoBehaviour
             TakeDamage(10);
             Debug.Log("HIT!!");
         }
+        else if(collision.tag == "BuffAtk")
+        {
+            TakeDamage(15);
+        }
+        else if(collision.tag == "Chian")
+        {
+            TakeDamage(3);
+        }
+        else if (collision.tag == "Thunder")
+        {
+            TakeDamage(30);
+        }
+        else if(collision.tag == "BeastHit")
+        {
+            TakeDamage(30);
+        }
     }
-    */
 }

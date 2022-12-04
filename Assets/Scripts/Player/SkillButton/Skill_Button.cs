@@ -10,25 +10,25 @@ public class Skill_Button : MonoBehaviour
     public float ShotRate = 5f;
 
 
-    public void Skill1() //�@��
+    public void Skill1() //護盾
     {
         Player_Anim.SetTrigger("IsShield");
         Debug.Log("Shield");
     }
 
-    public void Skill2() // ����
+    public void Skill2() // 鎖鏈
     {
         Player_Anim.SetTrigger("IsChian");
         Debug.Log("Chian");
     }
 
-    public void Skill3() //��_
+    public void Skill3() //恢復
     {
         Player_Anim.SetTrigger("IsCure");
         Debug.Log("Cure");
     }
 
-    public void Skill4() //����buff
+    public void Skill4() //Atkbuff
     {
         Player_Anim.SetTrigger("IsAtkBuff");
         AtkUp();
@@ -36,13 +36,13 @@ public class Skill_Button : MonoBehaviour
         Debug.Log("AtkUp");
     }
 
-    public void BSkill1() //�{�q
+    public void BSkill1() //雷爆
     {
         Player_Anim.SetTrigger("IsThunder");
         Debug.Log("Thunder");
     }
 
-    public void BSkil2() //�~��
+    public void BSkil2() //獸爪
     {
         Player_Anim.SetTrigger("IsBeastHit");
         Debug.Log("BeastHit");

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BeastHitAtk : MonoBehaviour
 {
-    public int damage = 10;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +18,6 @@ public class BeastHitAtk : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        SlimeHealth slime = hitInfo.GetComponent<SlimeHealth>();
-        if (slime != null && hitInfo.tag == "Monster")
-        {
-            slime.TakeDamage(damage);
-        }
-
         Destroy(gameObject, 1f);
     }
 }
