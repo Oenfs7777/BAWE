@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ArrorBullet : MonoBehaviour
 {
     public Rigidbody2D RB;
-    public Transform DL,DR,UL,UR;
+    public Transform DL, DR, UL, UR;
     public float speed;
     public int damage = 10;
 
@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerHealth player = collision.GetComponent<PlayerHealth>();
-        if (collision.tag== "Player")
+        if (collision.tag == "Player")
         {
             player.TakeDamage(damage);
             Destroy(gameObject);
@@ -50,19 +50,19 @@ public class Bullet : MonoBehaviour
     public void PlayerWhere()
     {
 
-    if (GetPlayer.currentPos == Pos.DL)
+        if (GetPlayer.currentPos == Pos.DL)
         {
             RB.velocity = new Vector3(2, 1, 0) * -speed;
         }
-    else if (GetPlayer.currentPos == Pos.UL)
+        else if (GetPlayer.currentPos == Pos.UL)
         {
             RB.velocity = new Vector3(-2, 1, 0) * speed;
         }
-    else if (GetPlayer.currentPos == Pos.DR)
+        else if (GetPlayer.currentPos == Pos.DR)
         {
             RB.velocity = new Vector3(-2, 1, 0) * -speed;
         }
-    else if (GetPlayer.currentPos == Pos.UR)
+        else if (GetPlayer.currentPos == Pos.UR)
         {
             RB.velocity = new Vector3(2, 1, 0) * speed;
         }
