@@ -18,4 +18,8 @@ public class StartMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void SkillTestButton()
+    {
+        SceneManager.LoadScene("MainTestScene");
+    }
 }
