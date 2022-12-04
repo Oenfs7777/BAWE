@@ -8,7 +8,7 @@ public class Slime : MonoBehaviour
     private float ShotTime;
 
     private float FlipTime;
-    private float FlipTimetarget = 0.8f;
+    private float FlipTimetarget = 1.5f;
 
     public GameObject bullet;
     private Animator Slime_anim;

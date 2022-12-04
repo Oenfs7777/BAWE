@@ -7,10 +7,11 @@ public class Guard : MonoBehaviour
     private Transform BattleR;
 
     private float FlipTime;
-    private float FlipTimetarget = 0.8f;
+    private float FlipTimetarget = 1.5f;
     public bool flip = true;
     public Player GetPlayer;
     public GameObject Arror;
+    public Transform GAtkpoint;
     private Animator Guard_anim;
 
     private float ShotRate = 3.0f;
@@ -52,6 +53,11 @@ public class Guard : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
+    void Atk()
+    {
+        Instantiate(Arror, GAtkpoint.position, GAtkpoint.rotation);
+    }
+
     public void FlipYes()
     {
         if (flip == true)
@@ -90,5 +96,24 @@ public class Guard : MonoBehaviour
         {
             Guard_anim.SetTrigger("TAtk");
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "chian(Clone)")
+        {
+            TimeStop();
+            Invoke("TimeCount", 2f);
+        }
+    }
+
+    public void TimeStop()
+    {
+        Guard_anim.speed = 0;
+    }
+
+    public void TimeCount()
+    {
+        Guard_anim.speed = 1;
     }
 }
