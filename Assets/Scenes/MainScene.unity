@@ -23846,6 +23846,17 @@ MonoBehaviour:
   SkyPoint: {fileID: 1309938409}
   BPoint: {fileID: 1582834216}
   UpAtkTime: 8
+--- !u!114 &2211151982633543703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2211151982072797118, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+  m_PrefabInstance: {fileID: 2211151982633543685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2211151982633543686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f6e32e0378440cabe23345303f4c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7104601079618947048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23853,6 +23864,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 543456783}
     m_Modifications:
+    - target: {fileID: -9001650687806263380, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
+      propertyPath: flip
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -9001650687806263380, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
+      propertyPath: GetPlayer
+      value: 
+      objectReference: {fileID: 2211151982633543703}
     - target: {fileID: 2098036436709158935, guid: c20eea9bf25586c499184ca0b05ff42c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 270

@@ -6,19 +6,41 @@ public class Slime : MonoBehaviour
 {
     private float ShotRate = 5.0f;
     private float ShotTime;
+
+    private float FlipTime;
+    private float FlipTimetarget = 0.8f;
+
     public GameObject bullet;
     private Animator Slime_anim;
+    public Player GetPlayer;
+    public bool flip = true;
+
+    public void Start()
+    {
+
+    }
 
     public void Update()
     {
         Slime_anim = GetComponent<Animator>();
-        ShotTime += Time.deltaTime;
+
         if (ShotTime > ShotRate)
         {
             Slime_anim.SetTrigger("SlimeAtk");
             ShotTime = 0;
         }
+
+        if (FlipTime > FlipTimetarget)
+        {
+            FlipYes();
+            FlipNo();
+
+            FlipTime = 0;
+        }
+        FlipTime += Time.deltaTime;
+        ShotTime += Time.deltaTime;
     }
+
 
     void Atk()
     {
@@ -27,10 +49,10 @@ public class Slime : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "chian(Clone)")
+        if (collision.name == "chian(Clone)")
         {
             TimeStop();
-            Invoke("TimeCount",2f);
+            Invoke("TimeCount", 2f);
         }
     }
 
@@ -42,5 +64,29 @@ public class Slime : MonoBehaviour
     public void TimeCount()
     {
         Slime_anim.speed = 1;
+    }
+
+    public void FlipYes()
+    {
+        if (flip == true)
+        {
+            if (GetPlayer.currentPos == Pos.DR || GetPlayer.currentPos == Pos.UR)
+            {
+                transform.Rotate(0, 180, 0);
+                flip = false;
+            }
+        }
+    }
+
+    public void FlipNo()
+    {
+        if (flip == false)
+        {
+            if (GetPlayer.currentPos == Pos.DL || GetPlayer.currentPos == Pos.UL)
+            {
+                transform.Rotate(0, 180, 0);
+                flip = true;
+            }
+        }
     }
 }
