@@ -387,9 +387,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 559650330}
-        m_TargetAssemblyTypeName: Skill_Button, Assembly-CSharp
-        m_MethodName: Skill2
+      - m_Target: {fileID: 2211151982633543686}
+        m_TargetAssemblyTypeName: PlayerSkillTest, Assembly-CSharp
+        m_MethodName: Slot_2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -899,7 +899,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 566931611}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: StartMenuButton
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1109,9 +1109,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 559650330}
-        m_TargetAssemblyTypeName: Skill_Button, Assembly-CSharp
-        m_MethodName: Skill1
+      - m_Target: {fileID: 2211151982633543686}
+        m_TargetAssemblyTypeName: PlayerSkillTest, Assembly-CSharp
+        m_MethodName: Slot_1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1534,9 +1534,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 559650330}
-        m_TargetAssemblyTypeName: Skill_Button, Assembly-CSharp
-        m_MethodName: Skill3
+      - m_Target: {fileID: 2211151982633543686}
+        m_TargetAssemblyTypeName: PlayerSkillTest, Assembly-CSharp
+        m_MethodName: Slot_3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2246,6 +2246,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2211151982072797114, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+--- !u!114 &2211151982633543686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+  m_PrefabInstance: {fileID: 2211151982633543685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07741cbb987246a1b5cd86074004ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3875666308780977543
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -995,7 +995,7 @@ GameObject:
   - component: {fileID: 566931614}
   - component: {fileID: 566931613}
   - component: {fileID: 566931612}
-  - component: {fileID: 566931611}
+  - component: {fileID: 566931615}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -1024,18 +1024,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1770, y: 64}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &566931611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566931609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b94c64bd9cae48acb94dce946d51062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &566931612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,9 +1068,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566931611}
+      - m_Target: {fileID: 566931615}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: StartMenuButton
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1130,6 +1118,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566931609}
   m_CullTransparentMesh: 1
+--- !u!114 &566931615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566931609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b94c64bd9cae48acb94dce946d51062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &614041167
 GameObject:
   m_ObjectHideFlags: 0
