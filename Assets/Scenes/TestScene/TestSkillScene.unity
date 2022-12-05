@@ -384,30 +384,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658137013}
-        m_TargetAssemblyTypeName: BtnScript, Assembly-CSharp
-        m_MethodName: forBtn
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 135135504}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 135135502}
-        m_TargetAssemblyTypeName: Detail2, Assembly-CSharp
-        m_MethodName: PressSkillButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1006868120}
         m_TargetAssemblyTypeName: SkillSelect, Assembly-CSharp
         m_MethodName: SkillSlot_2Confirm
@@ -1230,7 +1206,10 @@ MonoBehaviour:
   button_1Img: {fileID: 1651043016}
   button_2Img: {fileID: 135135500}
   button_3Img: {fileID: 1236206940}
+  skillSelectNum1: 0
+  skillSelectNum2: 0
   skillNum: 0
+  skillBigNum: 0
 --- !u!1 &1236206940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,18 +1293,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809503191}
-        m_TargetAssemblyTypeName: Bigshotbutton, Assembly-CSharp
-        m_MethodName: forBtn
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1236206942}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1006868120}
         m_TargetAssemblyTypeName: SkillSelect, Assembly-CSharp
         m_MethodName: SkillSlot_3Confirm
@@ -1977,30 +1944,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658137013}
-        m_TargetAssemblyTypeName: BtnScript, Assembly-CSharp
-        m_MethodName: forBtn
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1651043020}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1651043018}
-        m_TargetAssemblyTypeName: Detail2, Assembly-CSharp
-        m_MethodName: PressSkillButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1006868120}
         m_TargetAssemblyTypeName: SkillSelect, Assembly-CSharp
         m_MethodName: SkillSlot_1Confirm

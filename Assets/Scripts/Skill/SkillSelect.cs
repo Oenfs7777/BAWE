@@ -10,7 +10,9 @@ public class SkillSelect : MonoBehaviour
 
     public GameObject button_1Img, button_2Img, button_3Img;
 
-    public int skillNum;
+    public int skillSelectNum1, skillSelectNum2;
+
+    public int skillNum, skillBigNum;
 
     // Start is called before the first frame update
     void Start()
@@ -39,92 +41,42 @@ public class SkillSelect : MonoBehaviour
     }
     public void SelectSkill_5()
     {
-        skillNum = 5;
+        skillBigNum = 5;
         Debug.Log("Skill5_Selected");
     }
     public void SelectSkill_6()
     {
-        skillNum = 6;
+        skillBigNum = 6;
         Debug.Log("Skill6_Selected");
     }
 
     public void SkillSlot_1Confirm()
     {
-        PlayerPrefs.SetInt("SkillSlot_1", skillNum);
-        Button btn1 = button_1Img.GetComponent<Button>();
-        btn1.GetComponent<Image>().sprite = skillImgs[skillNum];
-        Debug.Log("Skill" + skillNum + "in Slot_1");
+        skillSelectNum1 = skillNum;
+        if (skillSelectNum1 != skillSelectNum2)
+        {
+            PlayerPrefs.SetInt("SkillSlot_1", skillSelectNum1);
+            Button btn1 = button_1Img.GetComponent<Button>();
+            btn1.GetComponent<Image>().sprite = skillImgs[skillSelectNum1];
+            Debug.Log("Skill" + skillSelectNum1 + "in Slot_1");
+        }
     }
     public void SkillSlot_2Confirm()
     {
-        PlayerPrefs.SetInt("SkillSlot_2", skillNum);
-        Button btn2 = button_2Img.GetComponent<Button>();
-        btn2.GetComponent<Image>().sprite = skillImgs[skillNum];
-        Debug.Log("Skill" + skillNum + "in Slot_2");
+        skillSelectNum2 = skillNum;
+        if (skillSelectNum1 != skillSelectNum2)
+        {
+            PlayerPrefs.SetInt("SkillSlot_2", skillSelectNum2);
+            Button btn2 = button_2Img.GetComponent<Button>();
+            btn2.GetComponent<Image>().sprite = skillImgs[skillSelectNum2];
+            Debug.Log("Skill" + skillSelectNum2 + "in Slot_2");
+        }
     }
     public void SkillSlot_3Confirm()
     {
-        PlayerPrefs.SetInt("SkillSlot_3", skillNum);
+        PlayerPrefs.SetInt("SkillSlot_3", skillBigNum);
         Button btn3 = button_3Img.GetComponent<Button>();
-        btn3.GetComponent<Image>().sprite = skillImgs[skillNum];
-        Debug.Log("Skill" + skillNum + "in Slot_3");
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        // SelectTest();
-        // if (Input.GetKeyDown(KeyCode.I))
-        // {
-        //     skill1 = SelectTest();
-        //     PlayerPrefs.SetInt("SkillSlot_1", skill1);
-        //     Debug.Log("Skill" + skill1 + "in Slot_1");
-        // }
-        // if (Input.GetKeyDown(KeyCode.O))
-        // {
-        //     skill2 = SelectTest();
-        //     PlayerPrefs.SetInt("SkillSlot_2", skill2);
-        //     Debug.Log("Skill" + skill2 + "in Slot_2");
-        // }
-        // if (Input.GetKeyDown(KeyCode.P))
-        // {
-        //     skill3 = SelectTest();
-        //     PlayerPrefs.SetInt("SkillSlot_3", skill3);
-        //     Debug.Log("Skill" + skill3 + "in Slot_3");
-        // }
-    }
-
-    private int SelectTest()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            skillNum = 1;
-            Debug.Log("Skill1_Selected");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            skillNum = 2;
-            Debug.Log("Skill2_Selected");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            skillNum = 3;
-            Debug.Log("Skill3_Selected");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            skillNum = 4;
-            Debug.Log("Skill4_Selected");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            skillNum = 5;
-            Debug.Log("Skill5_Selected");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            skillNum = 6;
-            Debug.Log("Skill6_Selected");
-        }
-        return skillNum;
+        btn3.GetComponent<Image>().sprite = skillImgs[skillBigNum];
+        Debug.Log("Skill" + skillBigNum + "in Slot_3");
     }
 }
