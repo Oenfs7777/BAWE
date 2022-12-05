@@ -306,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f45d35992462de949afc39a6bbdf3608, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -333,6 +333,11 @@ Transform:
   m_Father: {fileID: 2073537065}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1621067817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 582854223320403894, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+  m_PrefabInstance: {fileID: 6653741088176713138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1790588849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,7 +545,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3903847868280277603, guid: 0fe3e4ec42b8c1e40918f90d81edff2e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3903847868280277603, guid: 0fe3e4ec42b8c1e40918f90d81edff2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -704,7 +709,7 @@ Transform:
   - {fileID: 1875615039}
   - {fileID: 971016658}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2103636962 stripped
 MonoBehaviour:
@@ -732,6 +737,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.55
       objectReference: {fileID: 0}
+    - target: {fileID: 1345854124298552274, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5342284770218799306, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -740,14 +749,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 5342828467886055424, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6653741088358916225, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
       propertyPath: m_Name
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 6653741088358916225, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: BB
+      value: 
+      objectReference: {fileID: 4755795216361195905, guid: e01b2803009537542b6c9e0f5ce4fc39, type: 3}
     - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
       propertyPath: Arror
       value: 
       objectReference: {fileID: 2614188264378655984, guid: 06512ddd6973fcf4d816db6e55ace3f0, type: 3}
+    - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: BAtkpoint
+      value: 
+      objectReference: {fileID: 1621067817}
     - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
       propertyPath: GAtkpoint
       value: 

@@ -11,7 +11,9 @@ public class Guard : MonoBehaviour
     public bool flip = true;
     public Player GetPlayer;
     public GameObject Arror;
+    public GameObject BB;
     public Transform GAtkpoint;
+    public Transform BAtkpoint;
     private Animator Guard_anim;
 
     private float ShotRate = 3.0f;
@@ -56,6 +58,11 @@ public class Guard : MonoBehaviour
     void Atk()
     {
         Instantiate(Arror, GAtkpoint.position, GAtkpoint.rotation);
+    }
+
+    void Bob()
+    {
+        Instantiate(BB, BAtkpoint.position, BAtkpoint.rotation);
     }
 
     public void FlipYes()
