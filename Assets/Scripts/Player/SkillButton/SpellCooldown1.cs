@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SpellCooldown : MonoBehaviour
+public class SpellCooldown1 : MonoBehaviour
 {
     [SerializeField]
     private Image imageCooldown;

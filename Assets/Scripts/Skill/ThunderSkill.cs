@@ -6,8 +6,8 @@ public class ThunderSkill : Skill
 {
     public void ThunderActive()
     {
-        ActTime();
         Player_Anim.SetTrigger("IsThunder");
+        cdTime = 25;
         Debug.Log("thunder used");
     }
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ShieldSkill : Skill
 {
+
     public void ShieldActive()
     {
-        ActTime();
         Player_Anim.SetTrigger("IsShield");
+        cdTime = 15;
         Debug.Log("shield used");
     }
 }

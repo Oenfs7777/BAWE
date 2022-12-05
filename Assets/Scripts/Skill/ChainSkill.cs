@@ -6,8 +6,8 @@ public class ChainSkill : Skill
 {
     public void ChainActive()
     {
-        ActTime();
         Player_Anim.SetTrigger("IsChian");
+        cdTime = 12;
         Debug.Log("chain used");
     }
 }

@@ -6,8 +6,8 @@ public class AtkBuffSkill : Skill
 {
     public void AtkBuffActive()
     {
-        ActTime();
         Player_Anim.SetTrigger("IsCure");
+        cdTime = 18;
         Debug.Log("aktBuff used");
     }
 }

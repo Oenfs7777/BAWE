@@ -6,8 +6,8 @@ public class ClawSkill : Skill
 {
     public void ClawActive()
     {
-        ActTime();
         Player_Anim.SetTrigger("IsBeastHit");
+        cdTime = 30;
         Debug.Log("claw used");
     }
 }
