@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TTBomb
+  m_Name: Bomb2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 70e54ad2e4827ec4bb8d829c3caaa118, type: 3}
-    - time: 0.125
-      value: {fileID: 21300000, guid: fb849922427b47445903489ed88a4db0, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: c6df1ea4ae015fe4f99459206648ea97, type: 3}
-    - time: 0.375
-      value: {fileID: 21300000, guid: bfe41128beb9f5e41ab449a51f6c4e65, type: 3}
+      value: {fileID: 21300000, guid: d6132b28ef7610b408a734205d5d0662, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 7d580e1ca19c2cd4d973646d803f7d78, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 70e54ad2e4827ec4bb8d829c3caaa118, type: 3}
-    - {fileID: 21300000, guid: fb849922427b47445903489ed88a4db0, type: 3}
-    - {fileID: 21300000, guid: c6df1ea4ae015fe4f99459206648ea97, type: 3}
-    - {fileID: 21300000, guid: bfe41128beb9f5e41ab449a51f6c4e65, type: 3}
+    - {fileID: 21300000, guid: d6132b28ef7610b408a734205d5d0662, type: 3}
+    - {fileID: 21300000, guid: 7d580e1ca19c2cd4d973646d803f7d78, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -74,11 +68,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.25
-    functionName: Bob
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 0276d3bdfc7b7df4c8e3b6ea946a474b, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
