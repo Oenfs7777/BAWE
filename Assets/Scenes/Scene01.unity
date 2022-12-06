@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObj
       objectReference: {fileID: 0}
+    - target: {fileID: 1080548351946800213, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8069900581980724377, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -766,9 +770,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4755795216361195905, guid: e01b2803009537542b6c9e0f5ce4fc39, type: 3}
     - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: RB
+      value: 
+      objectReference: {fileID: 2256079828232023994, guid: 5fc615ea2fa5bd845837a5de0a0e2343, type: 3}
+    - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
       propertyPath: Arror
       value: 
       objectReference: {fileID: 2614188264378655984, guid: 06512ddd6973fcf4d816db6e55ace3f0, type: 3}
+    - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
+      propertyPath: TArror
+      value: 
+      objectReference: {fileID: 2256079828232023990, guid: 5fc615ea2fa5bd845837a5de0a0e2343, type: 3}
     - target: {fileID: 6653741088358916229, guid: 466414bcbc0c0ea468077ca9980a0fec, type: 3}
       propertyPath: BAtkpoint
       value: 

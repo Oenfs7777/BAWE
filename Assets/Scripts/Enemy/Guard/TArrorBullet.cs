@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrorBullet : MonoBehaviour
+public class TArrorBullet : MonoBehaviour
 {
     public Rigidbody2D RB;
     public Transform DL, DR, UL, UR;
