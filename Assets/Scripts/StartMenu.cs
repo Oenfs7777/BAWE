@@ -20,6 +20,19 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Battle Scene
+    public void Scene01()
+    {
+        SceneManager.LoadScene("Scene01");
+    }
+    public void Scene02()
+    {
+        SceneManager.LoadScene("Scene02");
+    }
+    public void Scene03()
+    {
+        SceneManager.LoadScene("Scene03");
+    }
     // Skill Scene
     public void SkillTestButton()
     {
