@@ -52,7 +52,7 @@ public class Bomb : MonoBehaviour
         }
         else if (GetPlayer.currentPos == Pos.UL)
         {
-            RB.velocity = new Vector3(-2, 1, 0) * speed;
+            RB.velocity = new Vector3(-3f, 1, 0) * speed;
         }
         else if (GetPlayer.currentPos == Pos.DR)
         {
@@ -60,7 +60,7 @@ public class Bomb : MonoBehaviour
         }
         else if (GetPlayer.currentPos == Pos.UR)
         {
-            RB.velocity = new Vector3(2, 1, 0) * speed;
+            RB.velocity = new Vector3(3f, 1, 0) * speed;
         }
 
     }

@@ -11,6 +11,7 @@ public class Guard : MonoBehaviour
     public bool flip = true;
     public Player GetPlayer;
     public GameObject Arror;
+    public GameObject TArror;
     public GameObject BB;
     public Transform GAtkpoint;
     public Transform BAtkpoint;
@@ -63,6 +64,13 @@ public class Guard : MonoBehaviour
     void Bob()
     {
         Instantiate(BB, BAtkpoint.position, BAtkpoint.rotation);
+    }
+
+    void TAtk()
+    {
+        Invoke("ArrorLate", 0f);
+        Invoke("ArrorLate", 0.25f);
+        Invoke("ArrorLate", 0.5f);
     }
 
     public void FlipYes()
@@ -122,5 +130,10 @@ public class Guard : MonoBehaviour
     public void TimeCount()
     {
         Guard_anim.speed = 1;
+    }
+
+    public void ArrorLate()
+    {
+        Instantiate(TArror, GAtkpoint.position, GAtkpoint.rotation);
     }
 }
