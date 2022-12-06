@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SlimeHealth : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class SlimeHealth : MonoBehaviour
             Debug.Log("Dead!");
 
             SA.SetTrigger("SlimeDead");
+
+            Invoke("Dead", 3.0f);
         }
         SlimeHealthbar.HealthCurrent = health;
     }
@@ -40,11 +43,11 @@ public class SlimeHealth : MonoBehaviour
             TakeDamage(10);
             Debug.Log("HIT!!");
         }
-        else if(collision.tag == "BuffAtk")
+        else if (collision.tag == "BuffAtk")
         {
             TakeDamage(15);
         }
-        else if(collision.tag == "Chian")
+        else if (collision.tag == "Chian")
         {
             TakeDamage(3);
         }
@@ -52,9 +55,13 @@ public class SlimeHealth : MonoBehaviour
         {
             TakeDamage(30);
         }
-        else if(collision.tag == "BeastHit")
+        else if (collision.tag == "BeastHit")
         {
             TakeDamage(30);
         }
+    }
+    void Dead()
+    {
+        SceneManager.LoadScene("SkillScene01");
     }
 }
