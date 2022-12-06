@@ -23,6 +23,7 @@ public class SlimeHealth : MonoBehaviour
 
             SA.SetTrigger("SlimeDead");
 
+            // 死亡後三秒切換場景
             Invoke("Dead", 3.0f);
         }
         SlimeHealthbar.HealthCurrent = health;
@@ -60,6 +61,8 @@ public class SlimeHealth : MonoBehaviour
             TakeDamage(30);
         }
     }
+
+    // 切換場景
     void Dead()
     {
         SceneManager.LoadScene("SkillScene01");
