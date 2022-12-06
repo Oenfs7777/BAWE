@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int health;
 
     private Animator PA;
+
+    public GameObject deadButton;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -18,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Dead!");
 
             PA.SetTrigger("IsDead");
+            Invoke("Dead", 2.5f);
         }
         PlayerHealthBar.HealthCurrent = health;
     }
@@ -27,5 +31,9 @@ public class PlayerHealth : MonoBehaviour
         PlayerHealthBar.HealthCurrent = health;
 
         PA = gameObject.GetComponent<Animator>();
+    }
+    void Dead()
+    {
+        deadButton.SetActive(true);
     }
 }

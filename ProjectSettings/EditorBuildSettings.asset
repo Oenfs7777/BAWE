@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 07d4100c1a4d1415dbe676843a05a42c
   - enabled: 1
-    path: Assets/Scenes/SkillScene.unity
+    path: Assets/Scenes/SkillScene01.unity
     guid: 453cf91f94bc24bbbaa014d3909fb783
   - enabled: 1
     path: Assets/Scenes/TestScene/TestMainScene.unity
@@ -27,9 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene03.unity
     guid: 778009cb92cddc4459351093e268313e
   - enabled: 1
-    path: Assets/Scenes/SkillScene2.unity
+    path: Assets/Scenes/SkillScene02.unity
     guid: d4450ce5ac6134ac5acd350b63707275
   - enabled: 1
-    path: Assets/Scenes/SkillScene3.unity
+    path: Assets/Scenes/SkillScene03.unity
     guid: 1f2f45870b0444bd7b98f27d180bdd0b
   m_configObjects: {}

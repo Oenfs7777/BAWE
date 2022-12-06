@@ -20,7 +20,7 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
-    // Battle Scene
+    // Go To Battle Scene
     public void Scene01()
     {
         SceneManager.LoadScene("Scene01");
@@ -33,13 +33,27 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Scene03");
     }
-    // Skill Scene
+
+    // Go To Skill Scene
+    public void SkillScene01()
+    {
+        SceneManager.LoadScene("SkillScene01");
+    }
+    public void SkillScene02()
+    {
+        SceneManager.LoadScene("SkillScene02");
+    }
+    public void SkillScene03()
+    {
+        SceneManager.LoadScene("SkillScene03");
+    }
+
+    // Test Scene
     public void SkillTestButton()
     {
         SceneManager.LoadScene("TestMainScene");
     }
 
-    // Battle Scene
     public void RestartButton()
     {
         SceneManager.LoadScene("Start");
