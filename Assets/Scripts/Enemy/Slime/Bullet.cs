@@ -28,8 +28,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         lifeTime += Time.deltaTime;
         if (lifeTime > MaxLifetime)
         {
@@ -43,6 +41,12 @@ public class Bullet : MonoBehaviour
         if (collision.tag== "Player")
         {
             player.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if (collision.tag == "Shield")
+        {
+            player.TakeDamage(1);
+            Debug.Log("SS");
             Destroy(gameObject);
         }
     }
@@ -66,6 +70,5 @@ public class Bullet : MonoBehaviour
         {
             RB.velocity = new Vector3(2, 1, 0) * speed;
         }
-
     }
 }

@@ -12,6 +12,8 @@ TagManager:
   - Chian
   - Thunder
   - BeastHit
+  - Shield
+  - Bullet
   layers:
   - Default
   - TransparentFX

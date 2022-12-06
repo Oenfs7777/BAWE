@@ -7,10 +7,13 @@ public class SkillObj_effect : MonoBehaviour
     //public GameObject Shield;
     //public GameObject ChianEffect;
     public GameObject Tcall;
-
+    public Rigidbody2D RB;
     public float CallSpeed = 0.5f;
 
+    private void Start()
+    {
 
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

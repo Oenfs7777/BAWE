@@ -100,9 +100,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5833333
-    functionName: PlayerWhere
+    functionName: TAtk
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: dc10db85481043e438c7cf1ffdaaed8e, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 0276d3bdfc7b7df4c8e3b6ea946a474b, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
