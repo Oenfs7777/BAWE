@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Guardhealth : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Guardhealth : MonoBehaviour
 
 
 
-    // ����ˮ`
+    // 受到傷害
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -16,10 +17,8 @@ public class Guardhealth : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-
+            Dead();
             Debug.Log("Dead!");
-
-
         }
         Guardhealthbar.HealthCurrent = health;
     }
@@ -32,7 +31,7 @@ public class Guardhealth : MonoBehaviour
 
 
     }
-   
+
 
 
 
@@ -59,6 +58,12 @@ public class Guardhealth : MonoBehaviour
         {
             TakeDamage(30);
         }
+    }
+
+    // 切換場景
+    void Dead()
+    {
+        SceneManager.LoadScene("SkillScene02");
     }
 }
 
