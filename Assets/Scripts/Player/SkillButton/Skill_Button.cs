@@ -8,10 +8,13 @@ public class Skill_Button : MonoBehaviour
     public Animator Player_Anim;
     public float ShotTime;
     public float ShotRate = 5f;
-
+    public AudioClip ShieldSound;
+    public AudioClip ThunderSound;
+    
 
     public void Skill1() //護盾
     {
+        Soundmanager.instance.PlaySound(ShieldSound);
         Player_Anim.SetTrigger("IsShield");
         Debug.Log("Shield");
     }
@@ -19,6 +22,7 @@ public class Skill_Button : MonoBehaviour
     public void Skill2() // 鎖鏈
     {
         Player_Anim.SetTrigger("IsChian");
+       
         Debug.Log("Chian");
     }
 
@@ -38,6 +42,7 @@ public class Skill_Button : MonoBehaviour
 
     public void BSkill1() //雷爆
     {
+        Soundmanager.instance.PlaySound(ThunderSound);
         Player_Anim.SetTrigger("IsThunder");
         Debug.Log("Thunder");
     }

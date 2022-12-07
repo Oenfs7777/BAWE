@@ -45,6 +45,9 @@ public class Player : MonoBehaviour
     // 玩家目標位置
     Pos desPos = Pos.DL;
 
+    public AudioClip SwordSound;
+    public AudioClip ChainSound;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -211,21 +214,25 @@ public class Player : MonoBehaviour
         {
             Quaternion rotation = Quaternion.Euler(0, 180, 220);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         else if (currentPos == Pos.DL)
         {
             Quaternion rotation = Quaternion.Euler(0, 180, 140);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         else if (currentPos == Pos.UR)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, 220);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         else if (currentPos == Pos.DR)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, 140);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         Attack_Obj atk = Instantiate<Attack_Obj>(AtkObj, AttackPoint.position, AttackPoint.rotation);
         atk.player = this;
@@ -238,21 +245,25 @@ public class Player : MonoBehaviour
         {
             Quaternion rotation = Quaternion.Euler(0, 180, 220);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         else if (currentPos == Pos.DL)
         {
             Quaternion rotation = Quaternion.Euler(0, 180, 140);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         else if (currentPos == Pos.UR)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, 220);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         else if (currentPos == Pos.DR)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, 140);
             AttackPoint.rotation = rotation;
+            Soundmanager.instance.PlaySound(SwordSound);
         }
         Attack_Obj atk = Instantiate<Attack_Obj>(UpAtkObj, AttackPoint.position, AttackPoint.rotation);
         atk.player = this;
@@ -263,23 +274,31 @@ public class Player : MonoBehaviour
     {
         if (currentPos == Pos.UL)
         {
+            Soundmanager.instance.PlaySound(SwordSound);
             Quaternion rotation = Quaternion.Euler(0, 180, 220);
             AttackPoint.rotation = rotation;
+            
         }
         else if (currentPos == Pos.DL)
         {
+            Soundmanager.instance.PlaySound(ChainSound);
             Quaternion rotation = Quaternion.Euler(0, 180, 140);
             AttackPoint.rotation = rotation;
+           
         }
         else if (currentPos == Pos.UR)
         {
+            Soundmanager.instance.PlaySound(ChainSound);
             Quaternion rotation = Quaternion.Euler(0, 0, 220);
             AttackPoint.rotation = rotation;
+            
         }
         else if (currentPos == Pos.DR)
         {
+            Soundmanager.instance.PlaySound(ChainSound);
             Quaternion rotation = Quaternion.Euler(0, 0, 140);
             AttackPoint.rotation = rotation;
+            
         }
         Attack_Obj atk = Instantiate<Attack_Obj>(ChianObj, AttackPoint.position, AttackPoint.rotation);
         atk.player = this;

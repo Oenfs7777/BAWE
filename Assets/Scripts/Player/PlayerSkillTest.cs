@@ -33,6 +33,8 @@ public class PlayerSkillTest : MonoBehaviour
     // 技能的 parent class 
     Skill skill = new Skill();
 
+    public AudioClip ShieldSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -141,6 +143,7 @@ public class PlayerSkillTest : MonoBehaviour
     {
         if (a == 1)
         {
+            Soundmanager.instance.PlaySound(ShieldSound);
             ShieldSkill shieldSkill = new ShieldSkill();
             shieldSkill.Player = player;
             shieldSkill.Player_Anim = animator;
@@ -149,6 +152,7 @@ public class PlayerSkillTest : MonoBehaviour
         }
         else if (a == 2)
         {
+            
             ChainSkill chainSkill = new ChainSkill();
             chainSkill.Player = player;
             chainSkill.Player_Anim = animator;
