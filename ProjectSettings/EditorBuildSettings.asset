@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SkillScene03.unity
     guid: 1f2f45870b0444bd7b98f27d180bdd0b
+  - enabled: 1
+    path: Assets/Scenes/Teach.unity
+    guid: 80e93ba8876244e30958d34305bfa40f
   m_configObjects: {}

@@ -11,6 +11,10 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void TeachButton()
+    {
+        SceneManager.LoadScene("Teach");
+    }
     public void TestButton()
     {
         SceneManager.LoadScene("TestSkillScene");
@@ -27,7 +31,7 @@ public class StartMenu : MonoBehaviour
     }
     public void Scene02()
     {
-        SceneManager.LoadScene("Scene02");
+        SceneManager.LoadScene("Scene03");
     }
     public void Scene03()
     {
@@ -41,7 +45,7 @@ public class StartMenu : MonoBehaviour
     }
     public void SkillScene02()
     {
-        SceneManager.LoadScene("SkillScene02");
+        SceneManager.LoadScene("SkillScene03");
     }
     public void SkillScene03()
     {
