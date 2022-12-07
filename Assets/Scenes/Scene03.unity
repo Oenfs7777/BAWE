@@ -1004,6 +1004,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 753069067}
     - target: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: clawSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f2140b665e1faa4d88c6b2af995a946, type: 3}
+    - target: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cd2b83f70c6231247bc3b2edaefd948b, type: 3}
+    - target: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: ShieldSound
+      value: 
+      objectReference: {fileID: 8300000, guid: fcc33a0929378c545b86fd9c1a6290e1, type: 3}
+    - target: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: atkBuffSound
+      value: 
+      objectReference: {fileID: 8300000, guid: fbb946b39c364f240a941745e592ecc7, type: 3}
+    - target: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: thunderSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a0b20918d94be894299ea8f8673fd0e3, type: 3}
+    - target: {fileID: 543553379464964591, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: textCooldown1
       value: 
       objectReference: {fileID: 753069072}
@@ -1031,6 +1051,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1783162759
       objectReference: {fileID: 0}
+    - target: {fileID: 1539487359206396888, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: ChainSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ab03763630b3244d9d3cf84b00e83a2, type: 3}
+    - target: {fileID: 1539487359206396888, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: SwordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 45647fd8c0bc63e48afe441bad057a26, type: 3}
     - target: {fileID: 1545761720994237439, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: m_Color.a
       value: 0
