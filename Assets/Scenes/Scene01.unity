@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c78efc150ce3f4abdaad972c125830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
+  healthText: {fileID: 1750517127}
 --- !u!114 &376141062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de17a51ad0ae8a43872fb0b62f971ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
 --- !u!1 &971016656
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.15, y: -0.90199983}
+  m_AnchoredPosition: {x: 0.15, y: -2.13}
   m_SizeDelta: {x: 186.9136, y: 67.8547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200962497
@@ -1098,6 +1098,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1811715784223776062, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: BPoint
+      value: 
+      objectReference: {fileID: 1886181498}
+    - target: {fileID: 1811715784223776062, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
+      propertyPath: SkyPoint
+      value: 
+      objectReference: {fileID: 1886181499}
     - target: {fileID: 1838536969830684076, guid: ea1040f02b0024e2289de8f6c158f37c, type: 3}
       propertyPath: deadButton
       value: 
@@ -1367,6 +1375,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe3e4ec42b8c1e40918f90d81edff2e, type: 3}
+--- !u!4 &1886181498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3903847867798601199, guid: 0fe3e4ec42b8c1e40918f90d81edff2e, type: 3}
+  m_PrefabInstance: {fileID: 1886181497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1886181499 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3903847868062043438, guid: 0fe3e4ec42b8c1e40918f90d81edff2e, type: 3}
+  m_PrefabInstance: {fileID: 1886181497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003605191
 GameObject:
   m_ObjectHideFlags: 0

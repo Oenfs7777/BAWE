@@ -54,6 +54,11 @@ public class Slime : MonoBehaviour
             TimeStop();
             Invoke("TimeCount", 2f);
         }
+        else if (collision.tag=="Thunder")
+        {
+            TimeStop();
+            Invoke("TimeCount", 1f);
+        }
     }
 
     public void TimeStop()

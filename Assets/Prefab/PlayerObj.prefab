@@ -87,12 +87,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07741cbb987246a1b5cd86074004ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageCooldown1: {fileID: 0}
+  imageCooldown2: {fileID: 0}
+  imageCooldown3: {fileID: 0}
+  textCooldown1: {fileID: 0}
+  textCooldown2: {fileID: 0}
+  textCooldown3: {fileID: 0}
+  cdTime: 0
+  cooldownTime1: 0
+  cooldownTime2: 0
+  cooldownTime3: 0
+  isCooldown1: 0
+  isCooldown2: 0
+  isCooldown3: 0
+  cooldownTimer1: 0
+  cooldownTimer2: 0
+  cooldownTimer3: 0
+  circleTime1: 0
+  circleTime2: 0
+  circleTime3: 0
   useSkill1: 0
   useSkill2: 0
   useSkill3: 0
-  button_1Img: {fileID: 0}
-  button_2Img: {fileID: 0}
-  button_3Img: {fileID: 0}
+  button_1: {fileID: 0}
+  button_2: {fileID: 0}
+  button_3: {fileID: 0}
   skillImgs:
   - {fileID: 0}
   - {fileID: 21300000, guid: d8e2a704cd44799478d7fdc2acb6ce92, type: 3}
@@ -369,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  deadButton: {fileID: 0}
 --- !u!114 &1811715784223776062
 MonoBehaviour:
   m_ObjectHideFlags: 0

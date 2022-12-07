@@ -60,3 +60,15 @@ TagManager:
   - name: New Layer 3
     uniqueID: 2498123137
     locked: 0
+  - name: enemyatk
+    uniqueID: 2832020359
+    locked: 0
+  - name: SkillField
+    uniqueID: 2603904867
+    locked: 0
+  - name: PlayerBar
+    uniqueID: 2047148785
+    locked: 0
+  - name: Skill
+    uniqueID: 516815535
+    locked: 0

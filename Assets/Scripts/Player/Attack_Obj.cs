@@ -50,7 +50,7 @@ public class Attack_Obj : MonoBehaviour
         if(hitInfo.tag == "Monster")
         {
             Instantiate(hitEffect, hitInfo.transform.position, hitEffect.transform.rotation);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

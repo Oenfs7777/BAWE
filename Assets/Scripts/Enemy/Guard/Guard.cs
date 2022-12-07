@@ -7,7 +7,7 @@ public class Guard : MonoBehaviour
     private Transform BattleR;
 
     private float FlipTime;
-    private float FlipTimetarget = 1.5f;
+    private float FlipTimetarget = 1.2f;
     public bool flip = true;
     public Player GetPlayer;
     public GameObject Arror;
@@ -119,6 +119,11 @@ public class Guard : MonoBehaviour
         {
             TimeStop();
             Invoke("TimeCount", 2f);
+        }
+        else if (collision.tag == "Thunder")
+        {
+            TimeStop();
+            Invoke("TimeCount", 1f);
         }
     }
 

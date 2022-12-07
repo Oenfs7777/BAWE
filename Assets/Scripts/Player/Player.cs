@@ -310,7 +310,7 @@ public class Player : MonoBehaviour
             }
             Flip();
         }
-        Debug.Log("collision: " + collision.name);
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
