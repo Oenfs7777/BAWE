@@ -33,7 +33,7 @@ public class PlayerSkillTest : MonoBehaviour
     // 技能的 parent class 
     Skill skill = new Skill();
 
-    public AudioClip ShieldSound;
+    public AudioClip ShieldSound, healSound, atkBuffSound, clawSound, thunderSound;
 
     // Start is called before the first frame update
     void Start()
@@ -152,7 +152,7 @@ public class PlayerSkillTest : MonoBehaviour
         }
         else if (a == 2)
         {
-            
+
             ChainSkill chainSkill = new ChainSkill();
             chainSkill.Player = player;
             chainSkill.Player_Anim = animator;
@@ -161,6 +161,7 @@ public class PlayerSkillTest : MonoBehaviour
         }
         else if (a == 3)
         {
+            Soundmanager.instance.PlaySound(healSound);
             HealSkill healSkill = new HealSkill();
             healSkill.Player = player;
             healSkill.Player_Anim = animator;
@@ -169,6 +170,7 @@ public class PlayerSkillTest : MonoBehaviour
         }
         else if (a == 4)
         {
+            Soundmanager.instance.PlaySound(atkBuffSound);
             AtkBuffSkill atkBuffSkill = new AtkBuffSkill();
             atkBuffSkill.Player = player;
             atkBuffSkill.Player_Anim = animator;
@@ -177,6 +179,7 @@ public class PlayerSkillTest : MonoBehaviour
         }
         else if (a == 5)
         {
+            Soundmanager.instance.PlaySound(clawSound);
             ClawSkill clawSkill = new ClawSkill();
             clawSkill.Player = player;
             clawSkill.Player_Anim = animator;
@@ -185,6 +188,7 @@ public class PlayerSkillTest : MonoBehaviour
         }
         else if (a == 6)
         {
+            Soundmanager.instance.PlaySound(thunderSound);
             ThunderSkill thunderSkill = new ThunderSkill();
             thunderSkill.Player = player;
             thunderSkill.Player_Anim = animator;
